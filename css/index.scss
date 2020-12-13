@@ -1,5 +1,13 @@
-// Poppins 500
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+// Poppins 400
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+// Radley 400
+@import url('https://fonts.googleapis.com/css2?family=Radley&display=swap');
+// Mallanna 400
+@import url('https://fonts.googleapis.com/css2?family=Mallanna&display=swap');
+// Raleway 400
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+// Nunito 400
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 body {
     width: 100%;
@@ -10,7 +18,8 @@ body {
 }
 
 section {
-    padding: 2em;
+    padding: 7em;
+    color: white;
 }
 
 ul {
@@ -30,13 +39,11 @@ img {
 header {
     display: flex;
     justify-content: space-between;
-    padding: 2em;
+    padding: 2em 7em;
+    z-index: 7;
     a {
-        color: blueviolet;
-    }
-
-    .logo {
-        color: blueviolet;
+        color: #8a2be2;
+        font-weight: bold;
     }
     
     ul {
@@ -59,37 +66,85 @@ header {
     right: 0;
 }
 
-// Adjust background opacity
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0; 
-    left: 0;
-    width: 100%; 
-    height: 100vh;
-    background-image: url("../lines-of-code.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 80% 0;
-    opacity: 0.5;
-    z-index: -1;
+.header--fixed-top-scrolled {
+    background-color: #F4F4ED;
 }
 
+
 .hero {
-    padding-top: 5em;
-    z-index: 1;
     color: white;
+    padding: 7em;
+    height: 100vh;
+    box-sizing: border-box;
+    // Change background opacity without affecting child elements
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url("../lines-of-code.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hero__text-content {
+    font-size: 1.5em;
+    padding: 0;
+    margin: 0;
+    h1 {
+        font-size: 2.4em;
+        margin-bottom: 0.6em;
+        font-weight: bold;
+    }
+    p {
+        font-size: 0.78em;
+        padding: 0.7em 0;
+    }
+}
+
+.hero__action {
+    margin-top: 2em;
+    button {
+        border: 1px white solid;
+        padding: 1.3em;
+        margin-right: 4em;
+        background-color: transparent;
+        z-index: 1;
+        a {
+            display: block;
+            font-size: 2em;
+            font-family: "Raleway";
+            font-weight: bold;
+            color: #0DA8D3;
+        }
+        
+        // Create a fill transition on button hovering
+        position: relative;
+
+        &:before {
+            background-color: white;
+            content:'';
+            width: 0%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            z-index: -1;
+            transition: 0.3s linear
+        }
+
+        &:hover:before {
+            width: 100%;
+            cursor: pointer;              
+        }
+    }
+
+
 }
 
 // CSS typing-like animation
 // Credit: https://denic.hashnode.dev/css-tips-you-wont-see-in-most-tutorials
 .typing {
-    width: 9ch; // Hard-coded value 9 ch = len("Bao Huynh")
-    animation: keyboard-typing 1s steps(22), blink .5s step-end infinite alternate;
+    width: 10ch; // Hard-coded value: 10 ch = len("Bao Huynh")
+    animation: keyboard-typing 2s steps(10), blink .5s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid;
-    font-size: 2em;
   }
   
   @keyframes keyboard-typing {

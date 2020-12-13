@@ -1,4 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Radley&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mallanna&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 body {
   width: 100%;
   height: 100vh;
@@ -8,7 +12,8 @@ body {
 }
 
 section {
-  padding: 2em;
+  padding: 7em;
+  color: white;
 }
 
 ul {
@@ -32,15 +37,13 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 2em;
+  padding: 2em 7em;
+  z-index: 7;
 }
 
 header a {
-  color: blueviolet;
-}
-
-header .logo {
-  color: blueviolet;
+  color: #8a2be2;
+  font-weight: bold;
 }
 
 header ul {
@@ -66,35 +69,85 @@ header ul li a {
   right: 0;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-image: url("../lines-of-code.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 80% 0;
-  opacity: 0.5;
-  z-index: -1;
+.header--fixed-top-scrolled {
+  background-color: #F4F4ED;
 }
 
 .hero {
-  padding-top: 5em;
-  z-index: 1;
   color: white;
+  padding: 7em;
+  height: 100vh;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.3))), url("../lines-of-code.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url("../lines-of-code.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero__text-content {
+  font-size: 1.5em;
+  padding: 0;
+  margin: 0;
+}
+
+.hero__text-content h1 {
+  font-size: 2.4em;
+  margin-bottom: 0.6em;
+  font-weight: bold;
+}
+
+.hero__text-content p {
+  font-size: 0.78em;
+  padding: 0.7em 0;
+}
+
+.hero__action {
+  margin-top: 2em;
+}
+
+.hero__action button {
+  border: 1px white solid;
+  padding: 1.3em;
+  margin-right: 4em;
+  background-color: transparent;
+  z-index: 1;
+  position: relative;
+}
+
+.hero__action button a {
+  display: block;
+  font-size: 2em;
+  font-family: "Raleway";
+  font-weight: bold;
+  color: #0DA8D3;
+}
+
+.hero__action button:before {
+  background-color: white;
+  content: '';
+  width: 0%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.hero__action button:hover:before {
+  width: 100%;
+  cursor: pointer;
 }
 
 .typing {
-  width: 9ch;
-  -webkit-animation: keyboard-typing 1s steps(22), blink 0.5s step-end infinite alternate;
-          animation: keyboard-typing 1s steps(22), blink 0.5s step-end infinite alternate;
+  width: 10ch;
+  -webkit-animation: keyboard-typing 2s steps(10), blink 0.5s step-end infinite alternate;
+          animation: keyboard-typing 2s steps(10), blink 0.5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid;
-  font-size: 2em;
 }
 
 @-webkit-keyframes keyboard-typing {
