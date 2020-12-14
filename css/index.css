@@ -2,13 +2,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Radley&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mallanna&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
 body {
   width: 100%;
   height: 100vh;
   margin: 0;
-  background-color: black;
-  font-family: "Poppins", Arial;
+  font-size: 4vw;
+  background-color: #F1F7ED;
+  font-family: "Poppins", sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -19,8 +21,7 @@ body *, body *:after, body *:before {
 }
 
 section {
-  padding: 2em;
-  color: white;
+  padding: 2em 2em;
 }
 
 ul {
@@ -44,28 +45,27 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 2em;
+  padding: 1.2rem 2rem;
   z-index: 7;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 header a {
-  color: #8a2be2;
   font-weight: 700;
   text-align: left;
+  font-family: "Montserrat";
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 header ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-header ul li {
   text-align: center;
 }
 
-header ul li a {
+header ul a {
   display: block;
   padding: 0 0.5em;
 }
@@ -78,13 +78,20 @@ header ul li a {
   right: 0;
 }
 
+.header--fixed-top a {
+  color: #8A00FF;
+}
+
 .header--fixed-top-scrolled {
-  background-color: #fae1d1;
+  background-color: #8A00FF;
+}
+
+.header--fixed-top-scrolled a {
+  color: #FFFFFF;
 }
 
 .hero {
   color: white;
-  padding: 2em;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("../lines-of-code.jpg");
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../lines-of-code.jpg");
   background-size: cover;
@@ -93,46 +100,46 @@ header ul li a {
   text-align: center;
 }
 
-.hero__text-content {
-  font-size: 1.3em;
-  padding: 0;
-  margin: 2.5em 0 0 0;
+.hero__text {
+  padding: 2.5rem 0 0 0;
+  margin: 0;
 }
 
-.hero__text-content h1 {
-  font-size: 2.4em;
-  font-weight: bold;
+.hero__text h1 {
+  font-size: 3em;
+  font-weight: 700;
   display: inline;
 }
 
-.hero__text-content .typed-cursor {
-  font-size: 2.4em;
+.hero__text .typed-cursor {
+  font-size: 3em;
 }
 
-.hero__text-content .hero__short-intro {
-  font-size: 0.78em;
+.hero__text .hero__short-intro {
+  font-size: 1.1em;
   padding: 0.6em 0 0 0;
 }
 
 .hero__action {
-  margin: 1em 0 0 0;
+  margin: 1rem 0 0 0;
   padding: 0;
 }
 
 .hero__action button {
-  border: 1px white solid;
-  padding: 1em;
-  margin: 0.95em 0 0.95em 0;
+  border: 1.5px white solid;
+  padding: 0.8em;
+  margin: 1em 0 1em 0;
   background-color: transparent;
   z-index: 1;
   display: inline-block;
-  width: 75vw;
+  width: 70vw;
+  font-size: inherit;
   position: relative;
 }
 
 .hero__action button a {
   display: block;
-  font-size: 2em;
+  font-size: 1.4em;
   font-family: "Raleway";
   font-weight: 700;
   color: #0DA8D3;
@@ -165,9 +172,34 @@ header ul li a {
           transform-origin: left;
 }
 
+.projects h1 {
+  color: #D72638;
+}
+
 @media only screen and (min-width: 1050px) {
+  body {
+    font-size: 1.3vw;
+  }
+  section {
+    padding: 3em 9vw;
+  }
+  header {
+    padding: 2em 9vw;
+  }
   .hero {
     height: 100vh;
+    text-align: left;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .hero .hero__content {
+    margin: auto;
+    margin-left: 0;
+  }
+  .hero button {
+    width: 20vw;
+    margin-right: 1.5em;
   }
 }
 /*# sourceMappingURL=index.css.map */

@@ -1,7 +1,7 @@
 function typeName() {
     const options = {
-        strings: ["Bao Huynh"],
-        typeSpeed: 50
+        strings: [document.querySelector(".typing").dataset.content],
+        typeSpeed: 55
     };
     
     const typed = new Typed('.typing', options);

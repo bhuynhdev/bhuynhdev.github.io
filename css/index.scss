@@ -6,15 +6,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Mallanna&display=swap');
 // Raleway 400 and 500 and 600 and 700 and 800
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap');
-// Nunito 400
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+// Nunito 400 and 600 and 700 and 800
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+// Montserrat 400 to 800
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+// Color pallete
+// https://coolors.co/090909-8a00ff-f1f7ed-0da8d3-d72638
 
 body {
     width: 100%;
     height: 100vh;
     margin: 0;
-    background-color: black;
-    font-family: "Poppins", Arial;
+    font-size: 4vw;
+    background-color: #F1F7ED;
+    font-family: "Poppins", sans-serif;
     box-sizing: border-box;
     *, *:after, *:before {
         box-sizing: inherit;
@@ -22,8 +28,7 @@ body {
 }
 
 section {
-    padding: 2em;
-    color: white;
+    padding: 2em 2em;
 }
 
 ul {
@@ -43,23 +48,23 @@ img {
 header {
     display: flex;
     justify-content: space-between;
-    padding: 2em;
+    padding: 1.2rem 2rem;
     z-index: 7;
-    font-size: 0.9em;
+    font-size: 1em;
     a {
-        color: #8a2be2;
         font-weight: 700;
         text-align: left;
+        font-family: "Montserrat";
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
     
     ul {
         display: flex;
-        li {
-            text-align: center;
-            a {
-                display: block;
-                padding: 0 0.5em;
-            }
+        text-align: center;
+        a {
+            display: block;
+            padding: 0 0.5em;
         }       
     }
 }
@@ -70,16 +75,21 @@ header {
     top: 0px;
     left: 0;
     right: 0;
+    a {
+        color: #8A00FF;
+    }
 }
 
 .header--fixed-top-scrolled {
-    background-color: rgb(250, 225, 209);
+    background-color: #8A00FF;
+    a {
+        color: #FFFFFF;
+    }
 }
 
 
 .hero {
     color: white;
-    padding: 2em;
     // Change background opacity without affecting child elements
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../lines-of-code.jpg");
     background-size: cover;
@@ -88,39 +98,40 @@ header {
     text-align: center;
 }
 
-.hero__text-content {
-    font-size: 1.3em;
-    padding: 0;
-    margin: 2.5em 0 0 0;
+.hero__text {
+    padding: 2.5rem 0 0 0;
+    margin: 0;
     h1 {
-        font-size: 2.4em;
-        font-weight: bold;
+        font-size: 3em;
+        font-weight: 700;
         display: inline; // Display inline so typed.js works
     }
     .typed-cursor {
-        font-size: 2.4em; // Make typed.js cursor as high as h1
+        font-size: 3em; // Make typed.js cursor as high as h1
     }
 
     .hero__short-intro {
-        font-size: 0.78em;
+        font-size: 1.1em;
         padding: 0.6em 0 0 0;
     }
 }
 
 .hero__action {
-    margin: 1em 0 0 0;
+    margin: 1rem 0 0 0;
     padding: 0;
+
     button {
-        border: 1px white solid;
-        padding: 1em;
-        margin: 0.95em 0 0.95em 0;
+        border: 1.5px white solid;
+        padding: 0.8em;
+        margin: 1em 0 1em 0;
         background-color: transparent;
         z-index: 1;
         display: inline-block;
-        width: 75vw;
+        width: 70vw;
+        font-size: inherit;
         a {
             display: block;
-            font-size: 2em;
+            font-size: 1.4em;
             font-family: "Raleway";
             font-weight: 700;
             color: #0DA8D3;
@@ -151,9 +162,38 @@ header {
     }
 }
 
+.projects {
+    h1 {
+        color: #D72638;
+    }
+}
+
 @media only screen and (min-width: 1050px) {
+    body {
+        font-size: 1.3vw;
+    }
+    section {
+        padding: 3em 9vw;
+    }
+
+    header {
+        padding: 2em 9vw;
+    }
+    
     .hero {
         height: 100vh;
+        text-align: left;
+        // Centering the hero's content
+        display: flex;
+        .hero__content {
+            margin: auto;
+            margin-left: 0;
+        }
+        
+        button {
+            width: 20vw;
+            margin-right: 1.5em;
+        }
     }
 }
 
