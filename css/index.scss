@@ -1,11 +1,11 @@
-// Poppins 400
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+// Poppins 400 and 600 and 700 and 800
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
 // Radley 400
 @import url('https://fonts.googleapis.com/css2?family=Radley&display=swap');
 // Mallanna 400
 @import url('https://fonts.googleapis.com/css2?family=Mallanna&display=swap');
-// Raleway 400
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+// Raleway 400 and 500 and 600 and 700 and 800
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap');
 // Nunito 400
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
@@ -43,7 +43,7 @@ header {
     z-index: 7;
     a {
         color: #8a2be2;
-        font-weight: bold;
+        font-weight: 700;
     }
     
     ul {
@@ -77,7 +77,7 @@ header {
     height: 100vh;
     box-sizing: border-box;
     // Change background opacity without affecting child elements
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url("../lines-of-code.jpg");
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../lines-of-code.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -90,6 +90,10 @@ header {
         font-size: 2.4em;
         margin-bottom: 0.6em;
         font-weight: bold;
+        display: inline; // Display inline so typed.js works
+    }
+    .typed-cursor {
+        font-size: 2.4em; // Make typed.js cursor as high as h1
     }
     p {
         font-size: 0.78em;
@@ -105,57 +109,37 @@ header {
         margin-right: 4em;
         background-color: transparent;
         z-index: 1;
+        display: inline-block;
         a {
             display: block;
             font-size: 2em;
             font-family: "Raleway";
-            font-weight: bold;
+            font-weight: 700;
             color: #0DA8D3;
         }
         
         // Create a fill transition on button hovering
         position: relative;
 
-        &:before {
+        &::before {
+            content: "";
             background-color: white;
-            content:'';
-            width: 0%;
             position: absolute;
             top: 0;
             left: 0;
             height: 100%;
-            z-index: -1;
-            transition: 0.3s linear
-        }
-
-        &:hover:before {
             width: 100%;
-            cursor: pointer;              
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease-in;
+            z-index: -1;
         }
-    }
 
-
-}
-
-// CSS typing-like animation
-// Credit: https://denic.hashnode.dev/css-tips-you-wont-see-in-most-tutorials
-.typing {
-    width: 10ch; // Hard-coded value: 10 ch = len("Bao Huynh")
-    animation: keyboard-typing 2s steps(10), blink .5s step-end infinite alternate;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid;
-  }
-  
-  @keyframes keyboard-typing {
-    from {
-      width: 0
-    }
-  }
-      
-  @keyframes blink {
-    50% {
-      border-color: transparent
+        &:hover::before {
+            transform: scaleX(1);
+            cursor: pointer;
+            transform-origin: left;
+        }
     }
 }
 

@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Radley&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mallanna&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 body {
   width: 100%;
@@ -43,7 +43,7 @@ header {
 
 header a {
   color: #8a2be2;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 header ul {
@@ -79,8 +79,8 @@ header ul li a {
   height: 100vh;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.3))), url("../lines-of-code.jpg");
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url("../lines-of-code.jpg");
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("../lines-of-code.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../lines-of-code.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -95,6 +95,11 @@ header ul li a {
   font-size: 2.4em;
   margin-bottom: 0.6em;
   font-weight: bold;
+  display: inline;
+}
+
+.hero__text-content .typed-cursor {
+  font-size: 2.4em;
 }
 
 .hero__text-content p {
@@ -112,6 +117,7 @@ header ul li a {
   margin-right: 4em;
   background-color: transparent;
   z-index: 1;
+  display: inline-block;
   position: relative;
 }
 
@@ -119,58 +125,34 @@ header ul li a {
   display: block;
   font-size: 2em;
   font-family: "Raleway";
-  font-weight: bold;
+  font-weight: 700;
   color: #0DA8D3;
 }
 
-.hero__action button:before {
+.hero__action button::before {
+  content: "";
   background-color: white;
-  content: '';
-  width: 0%;
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
-  z-index: -1;
-  -webkit-transition: 0.3s linear;
-  transition: 0.3s linear;
-}
-
-.hero__action button:hover:before {
   width: 100%;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transition: -webkit-transform 0.3s ease-in;
+  transition: -webkit-transform 0.3s ease-in;
+  transition: transform 0.3s ease-in;
+  transition: transform 0.3s ease-in, -webkit-transform 0.3s ease-in;
+  z-index: -1;
+}
+
+.hero__action button:hover::before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
   cursor: pointer;
-}
-
-.typing {
-  width: 10ch;
-  -webkit-animation: keyboard-typing 2s steps(10), blink 0.5s step-end infinite alternate;
-          animation: keyboard-typing 2s steps(10), blink 0.5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
-}
-
-@-webkit-keyframes keyboard-typing {
-  from {
-    width: 0;
-  }
-}
-
-@keyframes keyboard-typing {
-  from {
-    width: 0;
-  }
-}
-
-@-webkit-keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
+  -webkit-transform-origin: left;
+          transform-origin: left;
 }
 /*# sourceMappingURL=index.css.map */
