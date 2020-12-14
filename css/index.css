@@ -9,10 +9,17 @@ body {
   margin: 0;
   background-color: black;
   font-family: "Poppins", Arial;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body *, body *:after, body *:before {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
 }
 
 section {
-  padding: 7em;
+  padding: 2em;
   color: white;
 }
 
@@ -37,13 +44,15 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 2em 7em;
+  padding: 2em;
   z-index: 7;
+  font-size: 0.9em;
 }
 
 header a {
   color: #8a2be2;
   font-weight: 700;
+  text-align: left;
 }
 
 header ul {
@@ -53,12 +62,12 @@ header ul {
 }
 
 header ul li {
-  text-align: right;
+  text-align: center;
 }
 
 header ul li a {
   display: block;
-  padding: 0 0.7em;
+  padding: 0 0.5em;
 }
 
 .header--fixed-top {
@@ -70,30 +79,28 @@ header ul li a {
 }
 
 .header--fixed-top-scrolled {
-  background-color: #F4F4ED;
+  background-color: #fae1d1;
 }
 
 .hero {
   color: white;
-  padding: 7em;
-  height: 100vh;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  padding: 2em;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("../lines-of-code.jpg");
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../lines-of-code.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: 50% 0;
+  text-align: center;
 }
 
 .hero__text-content {
-  font-size: 1.5em;
+  font-size: 1.3em;
   padding: 0;
-  margin: 0;
+  margin: 2.5em 0 0 0;
 }
 
 .hero__text-content h1 {
   font-size: 2.4em;
-  margin-bottom: 0.6em;
   font-weight: bold;
   display: inline;
 }
@@ -102,22 +109,24 @@ header ul li a {
   font-size: 2.4em;
 }
 
-.hero__text-content p {
+.hero__text-content .hero__short-intro {
   font-size: 0.78em;
-  padding: 0.7em 0;
+  padding: 0.6em 0 0 0;
 }
 
 .hero__action {
-  margin-top: 2em;
+  margin: 1em 0 0 0;
+  padding: 0;
 }
 
 .hero__action button {
   border: 1px white solid;
-  padding: 1.3em;
-  margin-right: 4em;
+  padding: 1em;
+  margin: 0.95em 0 0.95em 0;
   background-color: transparent;
   z-index: 1;
   display: inline-block;
+  width: 75vw;
   position: relative;
 }
 
@@ -154,5 +163,11 @@ header ul li a {
   cursor: pointer;
   -webkit-transform-origin: left;
           transform-origin: left;
+}
+
+@media only screen and (min-width: 1050px) {
+  .hero {
+    height: 100vh;
+  }
 }
 /*# sourceMappingURL=index.css.map */

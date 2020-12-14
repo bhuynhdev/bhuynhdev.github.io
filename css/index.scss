@@ -15,10 +15,14 @@ body {
     margin: 0;
     background-color: black;
     font-family: "Poppins", Arial;
+    box-sizing: border-box;
+    *, *:after, *:before {
+        box-sizing: inherit;
+    }
 }
 
 section {
-    padding: 7em;
+    padding: 2em;
     color: white;
 }
 
@@ -39,20 +43,22 @@ img {
 header {
     display: flex;
     justify-content: space-between;
-    padding: 2em 7em;
+    padding: 2em;
     z-index: 7;
+    font-size: 0.9em;
     a {
         color: #8a2be2;
         font-weight: 700;
+        text-align: left;
     }
     
     ul {
         display: flex;
         li {
-            text-align: right;
+            text-align: center;
             a {
                 display: block;
-                padding: 0 0.7em;
+                padding: 0 0.5em;
             }
         }       
     }
@@ -67,49 +73,51 @@ header {
 }
 
 .header--fixed-top-scrolled {
-    background-color: #F4F4ED;
+    background-color: rgb(250, 225, 209);
 }
 
 
 .hero {
     color: white;
-    padding: 7em;
-    height: 100vh;
-    box-sizing: border-box;
+    padding: 2em;
     // Change background opacity without affecting child elements
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../lines-of-code.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: 50% 0;
+    text-align: center;
 }
 
 .hero__text-content {
-    font-size: 1.5em;
+    font-size: 1.3em;
     padding: 0;
-    margin: 0;
+    margin: 2.5em 0 0 0;
     h1 {
         font-size: 2.4em;
-        margin-bottom: 0.6em;
         font-weight: bold;
         display: inline; // Display inline so typed.js works
     }
     .typed-cursor {
         font-size: 2.4em; // Make typed.js cursor as high as h1
     }
-    p {
+
+    .hero__short-intro {
         font-size: 0.78em;
-        padding: 0.7em 0;
+        padding: 0.6em 0 0 0;
     }
 }
 
 .hero__action {
-    margin-top: 2em;
+    margin: 1em 0 0 0;
+    padding: 0;
     button {
         border: 1px white solid;
-        padding: 1.3em;
-        margin-right: 4em;
+        padding: 1em;
+        margin: 0.95em 0 0.95em 0;
         background-color: transparent;
         z-index: 1;
         display: inline-block;
+        width: 75vw;
         a {
             display: block;
             font-size: 2em;
@@ -140,6 +148,12 @@ header {
             cursor: pointer;
             transform-origin: left;
         }
+    }
+}
+
+@media only screen and (min-width: 1050px) {
+    .hero {
+        height: 100vh;
     }
 }
 
