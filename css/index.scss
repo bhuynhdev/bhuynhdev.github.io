@@ -222,6 +222,7 @@ header {
             flex-direction: column;
             background-color: #202020;
             .card__thumbnail-container {
+                height: min-content;
                 overflow: hidden;
                 position: relative;
                 display: flex; // Remove the block style spacing
