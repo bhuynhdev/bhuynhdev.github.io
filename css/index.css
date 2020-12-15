@@ -217,8 +217,7 @@ header .nav--fixed-bottom ul li a {
 }
 
 .projects .projects__showcase .card .card__thumbnail-container {
-  background-color: white;
-  border: 5px solid yellow;
+  border: 5px solid orange;
   overflow: hidden;
   position: relative;
   display: -webkit-box;
