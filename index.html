@@ -11,10 +11,17 @@
 <body>
     <header class="header--fixed-top">
         <a href="#" class="logo">Bao Huynh</a>
-        <nav>
+        <nav class="nav--fixed-top">
             <ul>
+                <li><a href="#">About</a></li>
                 <li><a href="#">Projects</a></li>
-                <!-- <li><a href="#">College experience</a></li> -->
+                <li><a href="#">Contact me</a></li>
+            </ul>
+        </nav>
+        <nav class="nav--fixed-bottom">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
                 <li><a href="#">Contact me</a></li>
             </ul>
         </nav>
@@ -31,17 +38,44 @@
                 </div>
             </div>
             <div class="hero__action">
-                <button class="hero__btn-projects"><a href="#">See my projects</a></button>
+                <button class="hero__btn-projects"><a href="#projects">See my projects</a></button>
                 <button class="hero__btn-resume"><a href="#">View my resume</a></button>
                 <button class="hero__btn-github"><a href="https://github.com/baohuynhlam" target=blank>Visit my Github</a></button>
             </div>     
         </div>          
     </section>
 
-    <section class="projects">
-        <h1>My projects</h1>
-        <div><p>My python project</p></div>
-        <div><p>My React project</p></div>
+    <section class="projects" id="projects">
+        <h1 class="projects__section-title">My best works</h1>
+        <p class="projects__see-more"><a href="#">See all projects >>></a></p>
+        <div class="projects__showcase">
+            <ul>
+                <li class="card">
+                    <div class="card__thumbnail-container">
+                        <img src="../lines-of-code.jpg" alt="Project thumbnail" class="card__thumbnail">
+                        <div class="card__info">
+                            <p>A warehouse robot that scans barcode and picks up package</p>
+                            <p>Built using Python and EV3 Intelligent Brick</p>
+                            <a href="#">Github</a>
+                        </div>
+                    </div>
+                    <h3 class="card__headline">Robot simulation program</h3>
+                </li>
+                <li class="card">
+                    <div class="card__thumbnail-container">
+                        <img src="../lines-of-code.jpg" alt="Project thumbnail" class="card__thumbnail">
+                        <div class="card__info">
+                            <p>A productity tool intergrating a calendar and a todo-list</p>
+                            <p>Built using the MERN stack</p>
+                            <a href="#">Github</a>
+                            <a href="#">Live site</a>
+                        </div>
+                    </div>
+                    <h3 class="card__headline">Timeblocking calendar</h3>
+                </li>
+            </ul>
+        </div>
+        
     </section>
 
     <section class="skills">

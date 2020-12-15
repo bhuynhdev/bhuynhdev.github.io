@@ -14,6 +14,10 @@
 // Color pallete
 // https://coolors.co/090909-8a00ff-f1f7ed-0da8d3-d72638
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     width: 100%;
     height: 100vh;
@@ -25,10 +29,12 @@ body {
     *, *:after, *:before {
         box-sizing: inherit;
     }
+    position: relative;
 }
 
 section {
-    padding: 2em 2em;
+    padding: 2em;
+    text-align: center;
 }
 
 ul {
@@ -56,16 +62,36 @@ header {
         text-align: left;
         font-family: "Montserrat";
         text-transform: uppercase;
-        letter-spacing: 0.05em;
     }
     
-    ul {
-        display: flex;
-        text-align: center;
-        a {
-            display: block;
-            padding: 0 0.5em;
-        }       
+    .nav--fixed-top {
+        display: none;
+    }
+
+    .nav--fixed-bottom {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        display: inline;
+        background-color: #000;
+        padding: 1em;
+        ul {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            li {
+                display: block;
+                padding-right: 3em;
+                &:last-child {
+                    padding-right: 0;
+                }
+                a {
+                    font-size: 0.87em;
+                    color: #F1F7ED;
+                }
+            }
+        }
     }
 }
 
@@ -138,34 +164,127 @@ header {
         }
         
         // Create a fill transition on button hovering
-        position: relative;
-
-        &::before {
-            content: "";
+        transition: background-color 0.2s ease-in;
+        &:hover {
             background-color: white;
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.3s ease-in;
-            z-index: -1;
+            cursor:pointer;
         }
 
-        &:hover::before {
-            transform: scaleX(1);
-            cursor: pointer;
-            transform-origin: left;
-        }
+        // &:before {
+        //     content: "";
+        //     background-color: white;
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     height: 100%;
+        //     width: 100%;
+        //     transform: scaleX(0);
+        //     transform-origin: right;
+        //     transition: transform 0.3s ease-in;
+        //     z-index: -1;
+        // }
+
+        // &:hover:before {
+        //     transform: scaleX(1);
+        //     cursor: pointer;
+        //     transform-origin: left;
+        // }
     }
 }
 
 .projects {
-    h1 {
+    .projects__section-title, .projects__see-more {
         color: #D72638;
     }
+
+    .projects__see-more {
+        display: inline;
+        a:hover, a:visited, a:active, a:link {
+            color: inherit;
+        }
+        &:hover {
+            font-style: italic;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+
+    .projects__showcase {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        margin-top: 1em;
+        .card {
+            margin: auto;
+            margin-bottom: 2em;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background-color: #202020;
+            .card__thumbnail-container {
+                overflow: hidden;
+                position: relative;
+                display: flex; // Remove the block style spacing
+                justify-content: center;
+                img {
+                    opacity: 1;
+                    transform: scale(1.12);
+                    transition: all 0.35s linear;
+                }
+                .card__info {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%) scale(1.07);
+                    padding: 2em;
+                    color: #FFFFFF;
+                    font-size: 0.9em;
+                    font-family: "Montserrat";
+                    opacity: 0;
+                    transition: all 0.35s linear;
+    
+                    a {
+                        display: inline-block;
+                        background: #FFF;
+                        padding: 0.5em 1em;
+                        margin-right: 0.5em;
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                        color: #8A00FF;
+                        font-weight: 700;
+                        font-family: "Montserrat"
+                    }                
+                }
+            }
+            
+            .card__headline {
+                background-color: #8A00FF;
+                margin: 0;
+                padding: 0.5em;
+                color: white;
+                text-align: center;
+                font-weight: 700;
+                font-size: 1.05em;
+            }           
+        }
+
+        .card:hover {
+            img {
+                opacity: 0.4;
+                transform: scale(1);
+            }
+
+            .card__info {
+                opacity: 1;
+                transform: translateY(-50%) scale(1);
+            }
+        }
+    }
+}
+
+.skills {
+    background-color: #151515;
+    color: white;
 }
 
 @media only screen and (min-width: 1050px) {
@@ -175,9 +294,28 @@ header {
     section {
         padding: 3em 9vw;
     }
+    
 
     header {
-        padding: 2em 9vw;
+        padding: 1.5em 9vw;
+        letter-spacing: 0.05em;
+        .nav--fixed-bottom {
+            display: none;
+        }
+        .nav--fixed-top {
+            display: inline;
+            ul {
+                display: flex;
+                text-align: center;
+                li {
+                    display: block;
+                    padding-right: 3em;
+                    &:last-child {
+                        padding-right: 0;
+                    }
+                }
+            }
+        }
     }
     
     .hero {

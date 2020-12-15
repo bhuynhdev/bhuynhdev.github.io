@@ -4,6 +4,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   width: 100%;
   height: 100vh;
@@ -13,6 +17,7 @@ body {
   font-family: "Poppins", sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  position: relative;
 }
 
 body *, body *:after, body *:before {
@@ -21,7 +26,8 @@ body *, body *:after, body *:before {
 }
 
 section {
-  padding: 2em 2em;
+  padding: 2em;
+  text-align: center;
 }
 
 ul {
@@ -55,19 +61,44 @@ header a {
   text-align: left;
   font-family: "Montserrat";
   text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
-header ul {
+header .nav--fixed-top {
+  display: none;
+}
+
+header .nav--fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  display: inline;
+  background-color: #000;
+  padding: 1em;
+}
+
+header .nav--fixed-bottom ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
 }
 
-header ul a {
+header .nav--fixed-bottom ul li {
   display: block;
-  padding: 0 0.5em;
+  padding-right: 3em;
+}
+
+header .nav--fixed-bottom ul li:last-child {
+  padding-right: 0;
+}
+
+header .nav--fixed-bottom ul li a {
+  font-size: 0.87em;
+  color: #F1F7ED;
 }
 
 .header--fixed-top {
@@ -134,7 +165,8 @@ header ul a {
   display: inline-block;
   width: 70vw;
   font-size: inherit;
-  position: relative;
+  -webkit-transition: background-color 0.2s ease-in;
+  transition: background-color 0.2s ease-in;
 }
 
 .hero__action button a {
@@ -145,35 +177,124 @@ header ul a {
   color: #0DA8D3;
 }
 
-.hero__action button::before {
-  content: "";
+.hero__action button:hover {
   background-color: white;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  -webkit-transform-origin: right;
-          transform-origin: right;
-  -webkit-transition: -webkit-transform 0.3s ease-in;
-  transition: -webkit-transform 0.3s ease-in;
-  transition: transform 0.3s ease-in;
-  transition: transform 0.3s ease-in, -webkit-transform 0.3s ease-in;
-  z-index: -1;
-}
-
-.hero__action button:hover::before {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
   cursor: pointer;
-  -webkit-transform-origin: left;
-          transform-origin: left;
 }
 
-.projects h1 {
+.projects .projects__section-title, .projects .projects__see-more {
   color: #D72638;
+}
+
+.projects .projects__see-more {
+  display: inline;
+}
+
+.projects .projects__see-more a:hover, .projects .projects__see-more a:visited, .projects .projects__see-more a:active, .projects .projects__see-more a:link {
+  color: inherit;
+}
+
+.projects .projects__see-more:hover {
+  font-style: italic;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.projects .projects__showcase {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[2];
+      grid-template-columns: repeat(2, auto);
+  margin-top: 1em;
+}
+
+.projects .projects__showcase .card {
+  margin: auto;
+  margin-bottom: 2em;
+  border-radius: 20px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #202020;
+}
+
+.projects .projects__showcase .card .card__thumbnail-container {
+  overflow: hidden;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.projects .projects__showcase .card .card__thumbnail-container img {
+  opacity: 1;
+  -webkit-transform: scale(1.12);
+          transform: scale(1.12);
+  -webkit-transition: all 0.35s linear;
+  transition: all 0.35s linear;
+}
+
+.projects .projects__showcase .card .card__thumbnail-container .card__info {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%) scale(1.07);
+          transform: translateY(-50%) scale(1.07);
+  padding: 2em;
+  color: #FFFFFF;
+  font-size: 0.9em;
+  font-family: "Montserrat";
+  opacity: 0;
+  -webkit-transition: all 0.35s linear;
+  transition: all 0.35s linear;
+}
+
+.projects .projects__showcase .card .card__thumbnail-container .card__info a {
+  display: inline-block;
+  background: #FFF;
+  padding: 0.5em 1em;
+  margin-right: 0.5em;
+  color: #8A00FF;
+  font-weight: 700;
+  font-family: "Montserrat";
+}
+
+.projects .projects__showcase .card .card__thumbnail-container .card__info a:last-child {
+  margin-right: 0;
+}
+
+.projects .projects__showcase .card .card__headline {
+  background-color: #8A00FF;
+  margin: 0;
+  padding: 0.5em;
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.05em;
+}
+
+.projects .projects__showcase .card:hover img {
+  opacity: 0.4;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.projects .projects__showcase .card:hover .card__info {
+  opacity: 1;
+  -webkit-transform: translateY(-50%) scale(1);
+          transform: translateY(-50%) scale(1);
+}
+
+.skills {
+  background-color: #151515;
+  color: white;
 }
 
 @media only screen and (min-width: 1050px) {
@@ -184,7 +305,27 @@ header ul a {
     padding: 3em 9vw;
   }
   header {
-    padding: 2em 9vw;
+    padding: 1.5em 9vw;
+    letter-spacing: 0.05em;
+  }
+  header .nav--fixed-bottom {
+    display: none;
+  }
+  header .nav--fixed-top {
+    display: inline;
+  }
+  header .nav--fixed-top ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: center;
+  }
+  header .nav--fixed-top ul li {
+    display: block;
+    padding-right: 3em;
+  }
+  header .nav--fixed-top ul li:last-child {
+    padding-right: 0;
   }
   .hero {
     height: 100vh;
