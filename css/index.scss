@@ -228,6 +228,8 @@ header {
                 justify-content: center;
                 img {
                     opacity: 1;
+                    height: auto;
+                    object-fit: contain;
                     transform: scale(1.12);
                     transition: all 0.35s linear;
                 }

@@ -236,6 +236,9 @@ header .nav--fixed-bottom ul li a {
 
 .projects .projects__showcase .card .card__thumbnail-container img {
   opacity: 1;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
   -webkit-transform: scale(1.12);
           transform: scale(1.12);
   -webkit-transition: all 0.35s linear;
