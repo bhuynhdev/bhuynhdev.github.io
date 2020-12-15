@@ -221,9 +221,13 @@ header .nav--fixed-bottom ul li a {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: #202020;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
 }
 
 .projects .projects__showcase .card .card__thumbnail-container {
+  background-color: white;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;

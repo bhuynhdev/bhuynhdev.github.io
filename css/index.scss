@@ -221,7 +221,9 @@ header {
             display: flex;
             flex-direction: column;
             background-color: #202020;
+            height: min-content;
             .card__thumbnail-container {
+                background-color: white;
                 height: min-content;
                 overflow: hidden;
                 position: relative;
