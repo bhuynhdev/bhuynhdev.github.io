@@ -38,14 +38,15 @@
                 </div>
             </div>
             <div class="hero__action">
-                <button class="hero__btn-projects"><a href="#projects">See my projects</a></button>
-                <button class="hero__btn-resume"><a href="#">View my resume</a></button>
-                <button class="hero__btn-github"><a href="https://github.com/baohuynhlam" target=blank>Visit my Github</a></button>
+                <a href="#projects" class="hero__btn-projects">See my projects</a>
+                <a href="#" class="hero__btn-resume">View my resume</a>
+                <a href="https://github.com/baohuynhlam" class="hero__btn-github" target=blank>Visit my Github</a>
             </div>     
         </div>          
     </section>
 
     <section class="projects" id="projects">
+        <img class="skill-tag-logo react-logo" src="react.svg" alt="React logo">
         <h1 class="projects__section-title">My best works</h1>
         <p class="projects__see-more"><a href="#">See all projects >>></a></p>
         <div class="projects__showcase">
@@ -54,24 +55,56 @@
                     <div class="card__thumbnail-container">
                         <img src="../lines-of-code.jpg" alt="Project thumbnail" class="card__thumbnail">
                         <div class="card__info">
-                            <p>A warehouse robot that scans barcode and picks up package</p>
-                            <p>Built using Python and EV3 Intelligent Brick</p>
-                            <a href="#">Github</a>
+                            <div class="card__text">
+                                <p>A warehouse robot that scans barcode and picks up package</p>
+                            </div>
+                            <div class="card__icons">
+                                <img class="skill-tag-logo python-logo" src="python.svg" alt="Python logo">
+                            </div>
+                            <div class="card__links">
+                                <a href="#">Github</a>
+                            </div>                        
                         </div>
                     </div>
                     <h3 class="card__headline">Robot simulation program</h3>
                 </li>
+
                 <li class="card" onclick="">
                     <div class="card__thumbnail-container">
                         <img src="../lines-of-code.jpg" alt="Project thumbnail" class="card__thumbnail">
-                        <div class="card__info">
-                            <p>A productity tool intergrating a calendar and a todo-list</p>
-                            <p>Built using the MERN stack</p>
-                            <a href="#">Github</a>
-                            <a href="#">Live site</a>
+                       <div class="card__info">
+                            <div class="card__text">
+                                <p>A web app integrating a calendar and a todo-list</p>
+                            </div>
+                            <div class="card__icons">
+                                <img class="skill-tag-logo react-logo" src="react.svg" alt="React logo">
+                            </div>
+                            <div class="card__links">
+                                <a href="#">Github</a>
+                                <a href="#">Live site</a>
+                            </div>                            
                         </div>
                     </div>
                     <h3 class="card__headline">Timeblocking calendar</h3>
+                </li>
+
+                <li class="card" onclick="">
+                    <div class="card__thumbnail-container">
+                        <img class="card__thumbnail" src="../lines-of-code.jpg" alt="Project thumbnail">
+                        <div class="card__info">
+                            <div class="card__text">
+                                <p>An automation tool for creating photo mosaic effect</p>
+                            </div>
+                            <div class="card__icons">
+                                <img class="skill-tag-logo python-icon" src="python.svg" alt="Python logo">
+                                <img class="skill-tag-logo pillow-logo" src="pillow.png" alt="Pillow logo">
+                            </div>
+                            <div class="card__links">
+                                <a href="#">Github</a>
+                            </div>                            
+                        </div>
+                    </div>
+                    <h3 class="card__headline">Photomosaic</h3>
                 </li>
             </ul>
         </div>

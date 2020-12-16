@@ -10,19 +10,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
 // Montserrat 400 to 800
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
-
 // Color pallete
 // https://coolors.co/090909-8a00ff-f1f7ed-0da8d3-d72638
 
 html {
     scroll-behavior: smooth;
+    font-size: 3.8vw;
 }
 
 body {
     width: 100%;
     height: 100vh;
     margin: 0;
-    font-size: 4vw;
     background-color: #F1F7ED;
     font-family: "Poppins", sans-serif;
     box-sizing: border-box;
@@ -51,12 +50,22 @@ img {
     width: 100%;
 }
 
+.skill-tag-logo:before {
+        content: "logo";
+        color: white;
+        background: white;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border: 2px solid red;
+}
+
 header {
     display: flex;
     justify-content: space-between;
     padding: 1.2rem 2rem;
     z-index: 7;
-    font-size: 1em;
+    font-size: 1rem;
     a {
         font-weight: 700;
         text-align: left;
@@ -87,7 +96,7 @@ header {
                     padding-right: 0;
                 }
                 a {
-                    font-size: 0.87em;
+                    font-size: 0.87rem;
                     color: #F1F7ED;
                 }
             }
@@ -128,16 +137,16 @@ header {
     padding: 2.5rem 0 0 0;
     margin: 0;
     h1 {
-        font-size: 3em;
+        font-size: 3rem;
         font-weight: 700;
         display: inline; // Display inline so typed.js works
     }
     .typed-cursor {
-        font-size: 3em; // Make typed.js cursor as high as h1
+        font-size: 3rem; // Make typed.js cursor as high as h1
     }
 
     .hero__short-intro {
-        font-size: 1.1em;
+        font-size: 1.1rem;
         padding: 0.6em 0 0 0;
     }
 }
@@ -146,22 +155,20 @@ header {
     margin: 1rem 0 0 0;
     padding: 0;
 
-    button {
+    a {
+        text-align: center;
         border: 1.5px white solid;
         padding: 0.8em;
-        margin: 1em 0 1em 0;
+        margin-top: 1em;
         background-color: transparent;
         z-index: 1;
         display: inline-block;
         width: 70vw;
-        font-size: inherit;
-        a {
-            display: block;
-            font-size: 1.4em;
-            font-family: "Raleway";
-            font-weight: 700;
-            color: #0DA8D3;
-        }
+        font-size: 1.4rem;
+        font-family: "Raleway";
+        font-weight: 700;
+        color: #0DA8D3;
+        
         
         // Create a fill transition on button hovering
         transition: background-color 0.2s ease-in;
@@ -193,6 +200,14 @@ header {
 }
 
 .projects {
+    padding-top: 3.5em;
+    margin-top: -2.1em;
+    h1 {
+        font-size: 2rem;
+    }
+    .projects__see-more {
+        font-size: 1.1rem;
+    }
     .projects__section-title, .projects__see-more {
         color: #D72638;
     }
@@ -209,54 +224,70 @@ header {
         }
     }
 
-    .projects__showcase {
-        display: grid;
-        grid-template-columns: repeat(2, auto);
+    .projects__showcase ul {
         margin-top: 1em;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1em;
         .card {
             margin: auto;
             margin-bottom: 2em;
             border-radius: 20px;
             overflow: hidden;
             background-color: #202020;
-            // height: min-content;
             .card__thumbnail-container {
-                border: 5px solid orange;
+                // border: 5px solid orange;
                 overflow: hidden;
                 position: relative;
                 display: flex; // Remove the block style spacing
                 justify-content: center;
-                img {
-                    opacity: 1;
+                .card__thumbnail {
                     width: 100%;
                     height: 100%;
                     object-fit: contain;
+                    opacity: 1;
                     transform: scale(1.12);
-                    transition: all 0.35s linear;
+                    transition: all 0.3s linear;
                 }
                 .card__info {
                     position: absolute;
+                    height: min-content;
                     top: 50%;
-                    transform: translateY(-50%) scale(1.07);
+                    transform: translateY(-50%) scale(1);
                     padding: 2em;
                     color: #FFFFFF;
-                    font-size: 0.9em;
+                    font-size: 0.9rem;
                     font-family: "Montserrat";
-                    opacity: 0;
-                    transition: all 0.35s linear;
-    
-                    a {
-                        display: inline-block;
-                        background: #FFF;
-                        padding: 0.5em 1em;
-                        margin-right: 0.5em;
-                        &:last-child {
-                            margin-right: 0;
+                    opacity: 1;
+                    transition: all 0.3s linear;
+                    display: flex;
+                    flex-direction: column;
+                    .card__links {
+                        margin-top: 0.2em;
+                        a {
+                            display: inline-block;
+                            background: #FFF;
+                            padding: 0.5em 1em;
+                            margin-right: 0.5em;
+                            &:last-of-type {
+                                margin-right: 0;
+                            }
+                            color: #8A00FF;
+                            font-weight: 700;
+                            font-family: "Montserrat"
                         }
-                        color: #8A00FF;
-                        font-weight: 700;
-                        font-family: "Montserrat"
-                    }                
+                    }
+                    .card__text p:last-of-type {
+                        margin-bottom: 0;
+                        // border: 2px solid white;
+                    }
+                    .card__icons {
+                        padding: 1em;
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(10px, 13%));
+                        justify-content: center;
+                        gap: 2rem;
+                    }
                 }
             }
             
@@ -267,19 +298,19 @@ header {
                 color: white;
                 text-align: center;
                 font-weight: 700;
-                font-size: 1.05em;
+                font-size: 1.05rem;
             }           
         }
 
         .card:hover {
-            img {
+            .card__thumbnail {
                 opacity: 0.4;
                 transform: scale(1);
             }
 
             .card__info {
                 opacity: 1;
-                transform: translateY(-50%) scale(1);
+                transform: translateY(-50%) scale(1.07);
             }
         }
     }
@@ -288,10 +319,11 @@ header {
 .skills {
     background-color: #151515;
     color: white;
+    margin-bottom: 2em;
 }
 
 @media only screen and (min-width: 1050px) {
-    body {
+    html {
         font-size: 1.3vw;
     }
     section {
@@ -331,10 +363,14 @@ header {
             margin-left: 0;
         }
         
-        button {
+        a {
             width: 20vw;
             margin-right: 1.5em;
         }
+    }
+
+    .projects .projects__showcase ul {
+        gap: 2.5em;
     }
 }
 

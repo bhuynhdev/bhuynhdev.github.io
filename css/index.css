@@ -6,13 +6,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
 html {
   scroll-behavior: smooth;
+  font-size: 3.8vw;
 }
 
 body {
   width: 100%;
   height: 100vh;
   margin: 0;
-  font-size: 4vw;
   background-color: #F1F7ED;
   font-family: "Poppins", sans-serif;
   -webkit-box-sizing: border-box;
@@ -44,6 +44,16 @@ img {
   width: 100%;
 }
 
+.skill-tag-logo:before {
+  content: "logo";
+  color: white;
+  background: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border: 2px solid red;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -53,7 +63,7 @@ header {
           justify-content: space-between;
   padding: 1.2rem 2rem;
   z-index: 7;
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 header a {
@@ -97,7 +107,7 @@ header .nav--fixed-bottom ul li:last-child {
 }
 
 header .nav--fixed-bottom ul li a {
-  font-size: 0.87em;
+  font-size: 0.87rem;
   color: #F1F7ED;
 }
 
@@ -137,17 +147,17 @@ header .nav--fixed-bottom ul li a {
 }
 
 .hero__text h1 {
-  font-size: 3em;
+  font-size: 3rem;
   font-weight: 700;
   display: inline;
 }
 
 .hero__text .typed-cursor {
-  font-size: 3em;
+  font-size: 3rem;
 }
 
 .hero__text .hero__short-intro {
-  font-size: 1.1em;
+  font-size: 1.1rem;
   padding: 0.6em 0 0 0;
 }
 
@@ -156,30 +166,39 @@ header .nav--fixed-bottom ul li a {
   padding: 0;
 }
 
-.hero__action button {
+.hero__action a {
+  text-align: center;
   border: 1.5px white solid;
   padding: 0.8em;
-  margin: 1em 0 1em 0;
+  margin-top: 1em;
   background-color: transparent;
   z-index: 1;
   display: inline-block;
   width: 70vw;
-  font-size: inherit;
+  font-size: 1.4rem;
+  font-family: "Raleway";
+  font-weight: 700;
+  color: #0DA8D3;
   -webkit-transition: background-color 0.2s ease-in;
   transition: background-color 0.2s ease-in;
 }
 
-.hero__action button a {
-  display: block;
-  font-size: 1.4em;
-  font-family: "Raleway";
-  font-weight: 700;
-  color: #0DA8D3;
-}
-
-.hero__action button:hover {
+.hero__action a:hover {
   background-color: white;
   cursor: pointer;
+}
+
+.projects {
+  padding-top: 3.5em;
+  margin-top: -2.1em;
+}
+
+.projects h1 {
+  font-size: 2rem;
+}
+
+.projects .projects__see-more {
+  font-size: 1.1rem;
 }
 
 .projects .projects__section-title, .projects .projects__see-more {
@@ -200,15 +219,16 @@ header .nav--fixed-bottom ul li a {
   cursor: pointer;
 }
 
-.projects .projects__showcase {
+.projects .projects__showcase ul {
+  margin-top: 1em;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (auto)[2];
-      grid-template-columns: repeat(2, auto);
-  margin-top: 1em;
+  -ms-grid-columns: (minmax(240px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1em;
 }
 
-.projects .projects__showcase .card {
+.projects .projects__showcase ul .card {
   margin: auto;
   margin-bottom: 2em;
   border-radius: 20px;
@@ -216,8 +236,7 @@ header .nav--fixed-bottom ul li a {
   background-color: #202020;
 }
 
-.projects .projects__showcase .card .card__thumbnail-container {
-  border: 5px solid orange;
+.projects .projects__showcase ul .card .card__thumbnail-container {
   overflow: hidden;
   position: relative;
   display: -webkit-box;
@@ -228,33 +247,47 @@ header .nav--fixed-bottom ul li a {
           justify-content: center;
 }
 
-.projects .projects__showcase .card .card__thumbnail-container img {
-  opacity: 1;
+.projects .projects__showcase ul .card .card__thumbnail-container .card__thumbnail {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+  opacity: 1;
   -webkit-transform: scale(1.12);
           transform: scale(1.12);
-  -webkit-transition: all 0.35s linear;
-  transition: all 0.35s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
 }
 
-.projects .projects__showcase .card .card__thumbnail-container .card__info {
+.projects .projects__showcase ul .card .card__thumbnail-container .card__info {
   position: absolute;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
   top: 50%;
-  -webkit-transform: translateY(-50%) scale(1.07);
-          transform: translateY(-50%) scale(1.07);
+  -webkit-transform: translateY(-50%) scale(1);
+          transform: translateY(-50%) scale(1);
   padding: 2em;
   color: #FFFFFF;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   font-family: "Montserrat";
-  opacity: 0;
-  -webkit-transition: all 0.35s linear;
-  transition: all 0.35s linear;
+  opacity: 1;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.projects .projects__showcase .card .card__thumbnail-container .card__info a {
+.projects .projects__showcase ul .card .card__thumbnail-container .card__info .card__links {
+  margin-top: 0.2em;
+}
+
+.projects .projects__showcase ul .card .card__thumbnail-container .card__info .card__links a {
   display: inline-block;
   background: #FFF;
   padding: 0.5em 1em;
@@ -264,39 +297,56 @@ header .nav--fixed-bottom ul li a {
   font-family: "Montserrat";
 }
 
-.projects .projects__showcase .card .card__thumbnail-container .card__info a:last-child {
+.projects .projects__showcase ul .card .card__thumbnail-container .card__info .card__links a:last-of-type {
   margin-right: 0;
 }
 
-.projects .projects__showcase .card .card__headline {
+.projects .projects__showcase ul .card .card__thumbnail-container .card__info .card__text p:last-of-type {
+  margin-bottom: 0;
+}
+
+.projects .projects__showcase ul .card .card__thumbnail-container .card__info .card__icons {
+  padding: 1em;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(10px, 13%))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(10px, 13%));
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2rem;
+}
+
+.projects .projects__showcase ul .card .card__headline {
   background-color: #8A00FF;
   margin: 0;
   padding: 0.5em;
   color: white;
   text-align: center;
   font-weight: 700;
-  font-size: 1.05em;
+  font-size: 1.05rem;
 }
 
-.projects .projects__showcase .card:hover img {
+.projects .projects__showcase ul .card:hover .card__thumbnail {
   opacity: 0.4;
   -webkit-transform: scale(1);
           transform: scale(1);
 }
 
-.projects .projects__showcase .card:hover .card__info {
+.projects .projects__showcase ul .card:hover .card__info {
   opacity: 1;
-  -webkit-transform: translateY(-50%) scale(1);
-          transform: translateY(-50%) scale(1);
+  -webkit-transform: translateY(-50%) scale(1.07);
+          transform: translateY(-50%) scale(1.07);
 }
 
 .skills {
   background-color: #151515;
   color: white;
+  margin-bottom: 2em;
 }
 
 @media only screen and (min-width: 1050px) {
-  body {
+  html {
     font-size: 1.3vw;
   }
   section {
@@ -336,9 +386,12 @@ header .nav--fixed-bottom ul li a {
     margin: auto;
     margin-left: 0;
   }
-  .hero button {
+  .hero a {
     width: 20vw;
     margin-right: 1.5em;
+  }
+  .projects .projects__showcase ul {
+    gap: 2.5em;
   }
 }
 /*# sourceMappingURL=index.css.map */
