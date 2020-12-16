@@ -112,6 +112,10 @@ header {
     right: 0;
     a {
         color: #8A00FF;
+        padding-bottom: 0.5rem;
+    }
+    nav a:hover {
+        border-bottom: 0.3rem solid #8A00FF;
     }
 }
 
@@ -119,6 +123,9 @@ header {
     background-color: #8A00FF;
     a {
         color: #FFFFFF;
+        &:hover {
+            opacity: 0.75;
+        }
     }
 }
 
@@ -227,7 +234,8 @@ header {
     .projects__showcase ul {
         margin-top: 1em;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-auto-rows: auto;
         gap: 1em;
         .card {
             margin: auto;
@@ -258,7 +266,7 @@ header {
                     color: #FFFFFF;
                     font-size: 0.9rem;
                     font-family: "Montserrat";
-                    opacity: 1;
+                    opacity: 0;
                     transition: all 0.3s linear;
                     display: flex;
                     flex-direction: column;
@@ -322,7 +330,7 @@ header {
     margin-bottom: 2em;
 }
 
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 1024px) {
     html {
         font-size: 1.3vw;
     }

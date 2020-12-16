@@ -121,6 +121,11 @@ header .nav--fixed-bottom ul li a {
 
 .header--fixed-top a {
   color: #8A00FF;
+  padding-bottom: 0.5rem;
+}
+
+.header--fixed-top nav a:hover {
+  border-bottom: 0.3rem solid #8A00FF;
 }
 
 .header--fixed-top-scrolled {
@@ -129,6 +134,10 @@ header .nav--fixed-bottom ul li a {
 
 .header--fixed-top-scrolled a {
   color: #FFFFFF;
+}
+
+.header--fixed-top-scrolled a:hover {
+  opacity: 0.75;
 }
 
 .hero {
@@ -223,8 +232,9 @@ header .nav--fixed-bottom ul li a {
   margin-top: 1em;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(240px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  -ms-grid-columns: (minmax(100px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-auto-rows: auto;
   gap: 1em;
 }
 
@@ -271,7 +281,7 @@ header .nav--fixed-bottom ul li a {
   color: #FFFFFF;
   font-size: 0.9rem;
   font-family: "Montserrat";
-  opacity: 1;
+  opacity: 0;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
   display: -webkit-box;
@@ -345,7 +355,7 @@ header .nav--fixed-bottom ul li a {
   margin-bottom: 2em;
 }
 
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 1024px) {
   html {
     font-size: 1.3vw;
   }
