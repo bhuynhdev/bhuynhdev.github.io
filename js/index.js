@@ -18,5 +18,7 @@ function changeNavbarWhenScrolled() {
 
 window.onscroll = function() { changeNavbarWhenScrolled(); };
 
-window.onload = function() { typeName(); };
+window.addEventListener('DOMContentLoaded', (event) => {
+    typeName();
+});
 
