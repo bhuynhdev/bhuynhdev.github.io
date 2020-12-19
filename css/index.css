@@ -6,7 +6,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
 html {
   scroll-behavior: smooth;
-  font-size: 3.8vw;
+  font-size: 16px;
 }
 
 body {
@@ -44,16 +44,6 @@ img {
   width: 100%;
 }
 
-.skill-tag-logo:before {
-  content: "logo";
-  color: white;
-  background: white;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  border: 2px solid red;
-}
-
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -63,7 +53,7 @@ header {
           justify-content: space-between;
   padding: 1.2rem 2rem;
   z-index: 7;
-  font-size: 1rem;
+  font-size: 1.05rem;
 }
 
 header a {
@@ -73,11 +63,27 @@ header a {
   text-transform: uppercase;
 }
 
-header .nav--fixed-top {
+.nav--fixed-top {
   display: none;
 }
 
-header .nav--fixed-bottom {
+.nav--fixed-top ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+}
+
+.nav--fixed-top ul li {
+  display: block;
+  padding-right: 3em;
+}
+
+.nav--fixed-top ul li:last-child {
+  padding-right: 0;
+}
+
+.nav--fixed-bottom {
   position: fixed;
   bottom: 0;
   right: 0;
@@ -87,7 +93,7 @@ header .nav--fixed-bottom {
   padding: 1em;
 }
 
-header .nav--fixed-bottom ul {
+.nav--fixed-bottom ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -97,17 +103,17 @@ header .nav--fixed-bottom ul {
   text-align: center;
 }
 
-header .nav--fixed-bottom ul li {
+.nav--fixed-bottom ul li {
   display: block;
   padding-right: 3em;
 }
 
-header .nav--fixed-bottom ul li:last-child {
+.nav--fixed-bottom ul li:last-child {
   padding-right: 0;
 }
 
-header .nav--fixed-bottom ul li a {
-  font-size: 0.87rem;
+.nav--fixed-bottom ul li a {
+  font-size: 0.84rem;
   color: #F1F7ED;
 }
 
@@ -117,6 +123,10 @@ header .nav--fixed-bottom ul li a {
   top: 0px;
   left: 0;
   right: 0;
+}
+
+.header--fixed-top .logo:hover {
+  font-style: italic;
 }
 
 .header--fixed-top a {
@@ -155,6 +165,10 @@ header .nav--fixed-bottom ul li a {
   margin: 0;
 }
 
+.hero__text h3 {
+  font-size: 1.4rem;
+}
+
 .hero__text h1 {
   font-size: 3rem;
   font-weight: 700;
@@ -166,12 +180,12 @@ header .nav--fixed-bottom ul li a {
 }
 
 .hero__text .hero__short-intro {
-  font-size: 1.1rem;
+  font-size: 1.07rem;
   padding: 0.6em 0 0 0;
 }
 
 .hero__action {
-  margin: 1rem 0 0 0;
+  margin-top: 1.6em;
   padding: 0;
 }
 
@@ -190,6 +204,10 @@ header .nav--fixed-bottom ul li a {
   color: #0DA8D3;
   -webkit-transition: background-color 0.2s ease-in;
   transition: background-color 0.2s ease-in;
+}
+
+.hero__action a:first-child {
+  margin-top: 0;
 }
 
 .hero__action a:hover {
@@ -228,25 +246,43 @@ header .nav--fixed-bottom ul li a {
   cursor: pointer;
 }
 
-.projects .projects__showcase ul {
+.projects__showcase ul {
   margin-top: 1em;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(100px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-auto-rows: auto;
   gap: 1em;
 }
 
-.projects .projects__showcase ul .card {
+.card {
+  width: 100%;
   margin: auto;
   margin-bottom: 2em;
   border-radius: 20px;
   overflow: hidden;
   background-color: #202020;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 0.42s ease-in;
+  transition: -webkit-transform 0.42s ease-in;
+  transition: transform 0.42s ease-in;
+  transition: transform 0.42s ease-in, -webkit-transform 0.42s ease-in;
 }
 
-.projects .projects__showcase ul .card .card__thumbnail-container {
+.card__headline {
+  background-color: #8A00FF;
+  margin: 0;
+  padding: 0.5em;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.card__content-container {
+  width: 100%;
   overflow: hidden;
   position: relative;
   display: -webkit-box;
@@ -257,19 +293,7 @@ header .nav--fixed-bottom ul li a {
           justify-content: center;
 }
 
-.projects .projects__showcase ul .card .card__thumbnail-container .card__thumbnail {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-  opacity: 1;
-  -webkit-transform: scale(1.12);
-          transform: scale(1.12);
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-}
-
-.projects .projects__showcase ul .card .card__thumbnail-container .card__info {
+.card__content-container .card__info {
   position: absolute;
   height: -webkit-min-content;
   height: -moz-min-content;
@@ -277,9 +301,12 @@ header .nav--fixed-bottom ul li a {
   top: 50%;
   -webkit-transform: translateY(-50%) scale(1);
           transform: translateY(-50%) scale(1);
+}
+
+.card__info {
   padding: 2em;
   color: #FFFFFF;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-family: "Montserrat";
   opacity: 0;
   -webkit-transition: all 0.3s linear;
@@ -293,29 +320,29 @@ header .nav--fixed-bottom ul li a {
           flex-direction: column;
 }
 
-.projects .projects__showcase ul .card .card__thumbnail-container .card__info .card__links {
+.card__links {
   margin-top: 0.2em;
 }
 
-.projects .projects__showcase ul .card .card__thumbnail-container .card__info .card__links a {
+.card__links a {
   display: inline-block;
   background: #FFF;
   padding: 0.5em 1em;
-  margin-right: 0.5em;
   color: #8A00FF;
   font-weight: 700;
   font-family: "Montserrat";
+  margin-right: 0.5em;
 }
 
-.projects .projects__showcase ul .card .card__thumbnail-container .card__info .card__links a:last-of-type {
+.card__links a:last-of-type {
   margin-right: 0;
 }
 
-.projects .projects__showcase ul .card .card__thumbnail-container .card__info .card__text p:last-of-type {
+.card__desc p:last-of-type {
   margin-bottom: 0;
 }
 
-.projects .projects__showcase ul .card .card__thumbnail-container .card__info .card__icons {
+.card__icons {
   padding: 1em;
   display: -ms-grid;
   display: grid;
@@ -327,23 +354,41 @@ header .nav--fixed-bottom ul li a {
   gap: 2rem;
 }
 
-.projects .projects__showcase ul .card .card__headline {
-  background-color: #8A00FF;
-  margin: 0;
-  padding: 0.5em;
-  color: white;
-  text-align: center;
-  font-weight: 700;
-  font-size: 1.05rem;
+.card__thumbnail-padded-aspect-ratio-container {
+  position: relative;
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 70%;
 }
 
-.projects .projects__showcase ul .card:hover .card__thumbnail {
+.card__thumbnail-padded-aspect-ratio-container .card__thumbnail-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.card:hover .card__thumbnail-img {
   opacity: 0.4;
   -webkit-transform: scale(1);
           transform: scale(1);
 }
 
-.projects .projects__showcase ul .card:hover .card__info {
+.card:hover .card__info {
   opacity: 1;
   -webkit-transform: translateY(-50%) scale(1.07);
           transform: translateY(-50%) scale(1.07);
@@ -352,12 +397,12 @@ header .nav--fixed-bottom ul li a {
 .skills {
   background-color: #151515;
   color: white;
-  margin-bottom: 2em;
+  padding-bottom: 4em;
 }
 
 @media only screen and (min-width: 1024px) {
   html {
-    font-size: 1.3vw;
+    font-size: 1.25vw;
   }
   section {
     padding: 3em 9vw;
@@ -371,19 +416,6 @@ header .nav--fixed-bottom ul li a {
   }
   header .nav--fixed-top {
     display: inline;
-  }
-  header .nav--fixed-top ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    text-align: center;
-  }
-  header .nav--fixed-top ul li {
-    display: block;
-    padding-right: 3em;
-  }
-  header .nav--fixed-top ul li:last-child {
-    padding-right: 0;
   }
   .hero {
     height: 100vh;
@@ -401,7 +433,7 @@ header .nav--fixed-bottom ul li a {
     margin-right: 1.5em;
   }
   .projects .projects__showcase ul {
-    gap: 2.5em;
+    gap: 2.37em;
   }
 }
 /*# sourceMappingURL=index.css.map */

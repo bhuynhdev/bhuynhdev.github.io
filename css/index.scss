@@ -15,7 +15,7 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 3.8vw;
+    font-size: 16px;
 }
 
 body {
@@ -50,59 +50,65 @@ img {
     width: 100%;
 }
 
-.skill-tag-logo:before {
-        content: "logo";
-        color: white;
-        background: white;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        border: 2px solid red;
-}
 
 header {
     display: flex;
     justify-content: space-between;
     padding: 1.2rem 2rem;
     z-index: 7;
-    font-size: 1rem;
+    font-size: 1.05rem;
     a {
         font-weight: 700;
         text-align: left;
         font-family: "Montserrat";
         text-transform: uppercase;
     }
-    
-    .nav--fixed-top {
-        display: none;
-    }
+}
 
-    .nav--fixed-bottom {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        width: 100%;
-        display: inline;
-        background-color: #000;
-        padding: 1em;
-        ul {
-            display: flex;
-            justify-content: center;
-            text-align: center;
-            li {
-                display: block;
-                padding-right: 3em;
-                &:last-child {
-                    padding-right: 0;
-                }
-                a {
-                    font-size: 0.87rem;
-                    color: #F1F7ED;
-                }
+// Mobile-first design:
+// Disable fixed-top navbar for mobile, and use fixed-bottom navbar instead
+// Then use media query to display nav--fixed-top at bigger screens
+.nav--fixed-top {
+    display: none;
+    ul {
+        display: flex;
+        text-align: center;
+        li {
+            display: block;
+            padding-right: 3em;
+            &:last-child {
+                padding-right: 0;
             }
         }
     }
 }
+
+.nav--fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    display: inline;
+    background-color: #000;
+    padding: 1em;
+    ul {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        li {
+            display: block;
+            padding-right: 3em;
+            &:last-child {
+                padding-right: 0;
+            }
+            a {
+                font-size: 0.84rem;
+                color: #F1F7ED;
+            }
+        }
+    }
+}
+
 
 .header--fixed-top {
     background-color: transparent;
@@ -110,6 +116,9 @@ header {
     top: 0px;
     left: 0;
     right: 0;
+    .logo:hover {
+        font-style: italic;
+    }
     a {
         color: #8A00FF;
         padding-bottom: 0.5rem;
@@ -143,6 +152,9 @@ header {
 .hero__text {
     padding: 2.5rem 0 0 0;
     margin: 0;
+    h3 {
+        font-size: 1.4rem;
+    }
     h1 {
         font-size: 3rem;
         font-weight: 700;
@@ -153,13 +165,13 @@ header {
     }
 
     .hero__short-intro {
-        font-size: 1.1rem;
+        font-size: 1.07rem;
         padding: 0.6em 0 0 0;
     }
 }
 
 .hero__action {
-    margin: 1rem 0 0 0;
+    margin-top: 1.6em;
     padding: 0;
 
     a {
@@ -167,6 +179,9 @@ header {
         border: 1.5px white solid;
         padding: 0.8em;
         margin-top: 1em;
+        &:first-child {
+            margin-top: 0;
+        }
         background-color: transparent;
         z-index: 1;
         display: inline-block;
@@ -230,109 +245,136 @@ header {
             cursor: pointer;
         }
     }
+}
 
-    .projects__showcase ul {
-        margin-top: 1em;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        grid-auto-rows: auto;
-        gap: 1em;
-        .card {
-            margin: auto;
-            margin-bottom: 2em;
-            border-radius: 20px;
-            overflow: hidden;
-            background-color: #202020;
-            .card__thumbnail-container {
-                // border: 5px solid orange;
-                overflow: hidden;
-                position: relative;
-                display: flex; // Remove the block style spacing
-                justify-content: center;
-                .card__thumbnail {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: contain;
-                    opacity: 1;
-                    transform: scale(1.12);
-                    transition: all 0.3s linear;
-                }
-                .card__info {
-                    position: absolute;
-                    height: min-content;
-                    top: 50%;
-                    transform: translateY(-50%) scale(1);
-                    padding: 2em;
-                    color: #FFFFFF;
-                    font-size: 0.9rem;
-                    font-family: "Montserrat";
-                    opacity: 0;
-                    transition: all 0.3s linear;
-                    display: flex;
-                    flex-direction: column;
-                    .card__links {
-                        margin-top: 0.2em;
-                        a {
-                            display: inline-block;
-                            background: #FFF;
-                            padding: 0.5em 1em;
-                            margin-right: 0.5em;
-                            &:last-of-type {
-                                margin-right: 0;
-                            }
-                            color: #8A00FF;
-                            font-weight: 700;
-                            font-family: "Montserrat"
-                        }
-                    }
-                    .card__text p:last-of-type {
-                        margin-bottom: 0;
-                        // border: 2px solid white;
-                    }
-                    .card__icons {
-                        padding: 1em;
-                        display: grid;
-                        grid-template-columns: repeat(auto-fit, minmax(10px, 13%));
-                        justify-content: center;
-                        gap: 2rem;
-                    }
-                }
-            }
-            
-            .card__headline {
-                background-color: #8A00FF;
-                margin: 0;
-                padding: 0.5em;
-                color: white;
-                text-align: center;
-                font-weight: 700;
-                font-size: 1.05rem;
-            }           
+
+.projects__showcase ul {
+    margin-top: 1em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: auto;
+    gap: 1em;
+}
+
+
+.card {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 2em;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #202020;
+    transform: scale(1);
+    transition: transform 0.42s ease-in;
+}
+
+.card__headline {
+    background-color: #8A00FF;
+    margin: 0;
+    padding: 0.5em;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.card__content-container {
+    // border: 5px solid orange;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex; // Remove the block style spacing
+    justify-content: center;            
+    .card__info {
+        position: absolute;
+        height: min-content;
+        top: 50%;
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+.card__info {
+    padding: 2em;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-family: "Montserrat";
+    opacity: 0;
+    transition: all 0.3s linear;
+    display: flex;
+    flex-direction: column;
+}
+
+.card__links {
+    margin-top: 0.2em;
+    a {
+        display: inline-block;
+        background: #FFF;
+        padding: 0.5em 1em;
+        color: #8A00FF;
+        font-weight: 700;
+        font-family: "Montserrat";
+        margin-right: 0.5em;
+        &:last-of-type {
+            margin-right: 0;
         }
+    }
+}
 
-        .card:hover {
-            .card__thumbnail {
-                opacity: 0.4;
-                transform: scale(1);
-            }
+.card__desc p:last-of-type {
+    margin-bottom: 0;
+}
 
-            .card__info {
-                opacity: 1;
-                transform: translateY(-50%) scale(1.07);
-            }
-        }
+
+.card__icons {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10px, 13%));
+    justify-content: center;
+    gap: 2rem;
+}
+
+.card__thumbnail-padded-aspect-ratio-container {
+    position: relative;
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 70%;
+    .card__thumbnail-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        transform: scale(1.05);
+        transition: all 0.3s ease-in;
+        object-fit: cover;
+    }
+}
+
+
+.card:hover {
+    transform: scale(1.05);
+    .card__thumbnail-img {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+
+    .card__info {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.07);
     }
 }
 
 .skills {
     background-color: #151515;
     color: white;
-    margin-bottom: 2em;
+    padding-bottom: 4em;
 }
 
 @media only screen and (min-width: 1024px) {
     html {
-        font-size: 1.3vw;
+        font-size: 1.25vw;
     }
     section {
         padding: 3em 9vw;
@@ -347,17 +389,6 @@ header {
         }
         .nav--fixed-top {
             display: inline;
-            ul {
-                display: flex;
-                text-align: center;
-                li {
-                    display: block;
-                    padding-right: 3em;
-                    &:last-child {
-                        padding-right: 0;
-                    }
-                }
-            }
         }
     }
     
@@ -378,7 +409,7 @@ header {
     }
 
     .projects .projects__showcase ul {
-        gap: 2.5em;
+        gap: 2.37em;
     }
 }
 
