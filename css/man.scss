@@ -94,14 +94,6 @@ nav {
 	}
 }
 
-.divider {
-    margin: 0 auto;
-    padding: 0;
-    background-color: #F2182E;
-    max-width: 70vw;
-    min-height: 1px;
-}
-
 header.header--fixed-top {
 	z-index: 10;
 	background-color: transparent;
@@ -151,13 +143,8 @@ section.hero {
 }
 
 button.fizzy-button {
-	all:unset;
-	cursor: pointer;
-	&:focus {
-		outline: orange 5px auto;
-	}
+	border: none;
 	color: #F0F0F0;
-	-webkit-text-fill-color: #F0F0F0;
 	background-color: #D72836;
 	width: 60vw;
 	border-radius: 10px;
@@ -558,12 +545,12 @@ section.skills {
             width: 17vw;
             margin-right: 1.5em;
         }
-	}
-
-	.hero__actions {
-		flex-direction: row;
-		text-align: center;
-	}
+        .hero__actions {
+            flex-direction: row;
+            text-align: center;
+        }
+    }
+	
 
 	.projects .projects__gallery ul {
         gap: 2.37em;
@@ -574,8 +561,5 @@ section.skills {
         align-items: flex-start;
         justify-content: space-between;
         gap: 5em;
-        .skill {
-            width: 40vw;
-        }
     }
 }

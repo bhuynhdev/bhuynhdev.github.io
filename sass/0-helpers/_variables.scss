@@ -1,0 +1,23 @@
+//////////////////
+// Media query breakpoints map
+/////////////////
+$breakpoints: (
+  'tablet':  481px,
+  'tablet-landscape': 992px,
+  'desktop':  1024px,
+  'large-screen': 1200px
+) !default;
+
+/////////////////
+// COLORS
+////////////////
+
+$primary: #D61125; // #ED1C24
+$bg: #F7FFCC; // F1f7ed
+$gray: #303030;
+$blue: #28AFB0;
+$brown: #9B7E46;
+$orange: #FF7318;
+$cerulean: #12C3A0;
+$yellow: #D6D13C;
+$white: #F0F0F0;

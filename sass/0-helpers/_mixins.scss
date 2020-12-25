@@ -1,0 +1,29 @@
+// ///////////////////////////
+// REPONSIVE MIXINS
+/////////////////////////////
+
+// Mixins based on breakpoint keys
+// Keys defined in 'breakpoints' map in "_variables.scss"
+@mixin respond-min-width($breakpoint) {
+    // If the key exists in the map
+    @if map-has-key($breakpoints, $breakpoint) {
+        // Prints a media query based on the value
+        @media only screen and  (min-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+   
+    // If the key doesn't exist in the map
+    @else {
+      @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
+
+// Mixin for variables
+@mixin respond-var($minWidth) {
+    @media only screen and (min-width: $minWidth) {
+        @content;
+    }
+}
+

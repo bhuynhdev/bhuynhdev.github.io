@@ -1,0 +1,42 @@
+header {
+	padding: 0 1.1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.logo, nav {
+		padding: 1.2rem 0;
+	}
+	a {
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+	@include respond-var(768px) {
+		padding: 0 9vw;
+		letter-spacing: 0.05em;
+		.nav--fixed-bottom {
+			display: none;
+		}
+		.nav--fixed-top {
+			display: inline;
+		}
+	}
+}
+
+header.header--fixed-top {
+	z-index: 10;
+	background-color: transparent;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	a {
+		font-size: 1.2rem;
+		color: #D72638;
+	}
+}
+
+header.header--fixed-top-scrolled {
+	box-shadow: 0 5px 10px #525252;
+	background: $bg;
+	// backdrop-filter: blur(2px);
+}

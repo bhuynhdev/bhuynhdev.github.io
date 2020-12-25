@@ -1,0 +1,49 @@
+section.hero {
+	height: 100vh;
+	padding-top: 5em;
+	// rgba(187, 196, 224, 0.6) BB62E2
+	background: linear-gradient(rgba(255, 255, 100, 0.6), rgba(195,195,161,0.4)), url("../asset/laptop1.jpg") no-repeat center center;
+	background-size: cover;
+	background-position: 55% 90%;
+}
+
+.hero__text {
+	h1 {
+		color: #D61125;
+        font-size: 3rem;
+        font-weight: 700;
+        display: inline; // Display inline so typed.js works
+    }
+    .typed-cursor {
+		color: #BD2231;
+        font-size: 3rem; // Make typed.js cursor as high as h1
+    }
+}
+
+.hero__actions {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.hero {
+	@include respond-min-width('tablet') {
+		height: 100vh;
+		text-align: left;
+		// Centering the hero's content
+		display: flex;
+		.hero__content {
+			margin: auto;
+			margin-left: 0;
+		}        
+		button {
+			width: 17vw;
+			margin-right: 1.5em;
+		}
+		.hero__actions {
+			flex-direction: row;
+			text-align: center;
+		}
+	}
+}
