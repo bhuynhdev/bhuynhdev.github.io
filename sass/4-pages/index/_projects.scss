@@ -2,16 +2,14 @@ section.projects {
     padding-top: 3.5em;
     margin-top: -2.1em;
     h1 {
-        font-size: 2rem;
+        color: $primary-satured;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 0.3em;
     }
     .projects__see-more {
         font-size: 1.1rem;
-    }
-    .projects__section-title, .projects__see-more {
-        color: #F2182E;
-    }
-
-    .projects__see-more {
+        color: $primary-satured;
         display: inline;
         a:hover, a:visited, a:active, a:link {
             color: inherit;
@@ -26,7 +24,7 @@ section.projects {
 
 
 .projects__gallery ul {
-    margin-top: 1em;
+    margin-top: 2em;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-auto-rows: auto;
@@ -49,10 +47,10 @@ section.projects {
 }
 
 .project__headline {
-    background-color: #D7283E; //D7283E
+    background-color: $primary-lighter;
+    color: $white;
     margin: 0;
     padding: 0.5em;
-    color: #F0F0F0;
     text-align: center;
     font-weight: 700;
     font-size: 1.05rem;
@@ -75,7 +73,7 @@ section.projects {
 
 .project__info {
     padding: 2em;
-    color: #FFFFFF;
+    color: $white;
     font-size: 1rem;
     font-family: "Poppins";
     opacity: 0;
@@ -86,11 +84,10 @@ section.projects {
 
 .project__links {
     margin-top: 0.2em;
-    a {
+    .project__link {
         display: inline-block;
-        background: #F0F0F0;
-        padding: 0.5em 1em;
-        color: #D7283E;
+        background: $white;
+        color: $primary-lighter;
         font-weight: 700;
         margin-right: 0.5em;
         &:last-of-type {
@@ -132,7 +129,7 @@ section.projects {
 }
 
 
-.project:hover {
+.project:hover, .project:focus-within {
 	transform: scale(1.05);
     .project__thumbnail-img {
         opacity: 0.18;

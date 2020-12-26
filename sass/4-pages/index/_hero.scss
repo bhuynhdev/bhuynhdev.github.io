@@ -1,7 +1,6 @@
 section.hero {
 	height: 100vh;
 	padding-top: 5em;
-	// rgba(187, 196, 224, 0.6) BB62E2
 	background: linear-gradient(rgba(255, 255, 100, 0.6), rgba(195,195,161,0.4)), url("../asset/laptop1.jpg") no-repeat center center;
 	background-size: cover;
 	background-position: 55% 90%;
@@ -9,13 +8,13 @@ section.hero {
 
 .hero__text {
 	h1 {
-		color: #D61125;
+		color: $primary;
         font-size: 3rem;
         font-weight: 700;
         display: inline; // Display inline so typed.js works
     }
     .typed-cursor {
-		color: #BD2231;
+		color: $primary-darker;
         font-size: 3rem; // Make typed.js cursor as high as h1
     }
 }
@@ -25,8 +24,20 @@ section.hero {
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
+	.hero__link {
+		color: $white;
+		background-color: $primary;
+		width: 60vw;
+		border-radius: 10px;
+		font-weight: 600;
+		font-size: 1.1rem;
+		padding: 0.8em;
+		margin-top: 1em;
+	}
 }
 
+
+// Desktop version
 .hero {
 	@include respond-min-width('tablet') {
 		height: 100vh;
@@ -37,7 +48,7 @@ section.hero {
 			margin: auto;
 			margin-left: 0;
 		}        
-		button {
+		.hero__link{
 			width: 17vw;
 			margin-right: 1.5em;
 		}

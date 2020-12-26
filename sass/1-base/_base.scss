@@ -4,10 +4,19 @@
 // Poppins font
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+
 html {
     scroll-behavior: smooth;
     @include respond-min-width('tablet') {
         font-size: 1.25vw;        
+    }
+    box-sizing: border-box;
+	*, *:after, *:before {
+		box-sizing: inherit;
+    }
+    
+    *:focus {
+        outline: 2px dashed orange;
     }
 }
 
@@ -23,5 +32,8 @@ section {
     text-align: center;
     @include respond-min-width('tablet') {
         padding: 3em 9vw;
+    }
+    h1 {
+        font-size: 2rem;
     }
 }
