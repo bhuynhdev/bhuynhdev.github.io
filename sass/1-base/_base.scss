@@ -7,8 +7,8 @@
 
 html {
     scroll-behavior: smooth;
-    @include respond-min-width('tablet') {
-        font-size: 1.25vw;        
+    @include respond-min-width('desktop') {
+        font-size: 1.25vw;
     }
     box-sizing: border-box;
 	*, *:after, *:before {
@@ -30,10 +30,33 @@ body {
 section {
 	padding: 2em 2rem;
     text-align: center;
-    @include respond-min-width('tablet') {
+    @include respond-min-width('desktop') {
         padding: 3em 9vw;
     }
     h1 {
         font-size: 2rem;
+    }
+}
+
+button {
+    padding: 0.4em 0.6em;
+    cursor: pointer;
+}
+
+form {
+    label {
+        display: block;
+        text-align: left;
+    }
+    input, textarea {
+        width: 100%;
+        height: 100%;
+        box-shadow: none;
+        border: 2px solid transparent;
+        padding: 7px;
+        &:focus {
+            outline: none;
+            border: 3px solid $gray;
+        }
     }
 }

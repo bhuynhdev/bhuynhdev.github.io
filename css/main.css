@@ -5,7 +5,7 @@ html {
           box-sizing: border-box;
 }
 
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 1024px) {
   html {
     font-size: 1.25vw;
   }
@@ -32,7 +32,7 @@ section {
   text-align: center;
 }
 
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 1024px) {
   section {
     padding: 3em 9vw;
   }
@@ -40,6 +40,30 @@ section {
 
 section h1 {
   font-size: 2rem;
+}
+
+button {
+  padding: 0.4em 0.6em;
+  cursor: pointer;
+}
+
+form label {
+  display: block;
+  text-align: left;
+}
+
+form input, form textarea {
+  width: 100%;
+  height: 100%;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 2px solid transparent;
+  padding: 7px;
+}
+
+form input:focus, form textarea:focus {
+  outline: none;
+  border: 3px solid #303030;
 }
 
 body {
@@ -64,11 +88,9 @@ a, a:visited {
 }
 
 button {
-  margin: 0;
-  padding: 0;
   border: none;
+  background: none;
   font-size: 1rem;
-  color: inherit;
   font-family: inherit;
 }
 
@@ -127,6 +149,31 @@ header.header--fixed-top-scrolled {
   background: #F7FFCC;
 }
 
+footer {
+  text-align: center;
+  padding: 2em 0;
+  background-color: #303030;
+  color: #F0F0F0;
+}
+
+footer a {
+  color: #F0F0F0;
+}
+
+footer a:hover {
+  color: #28AFB0;
+}
+
+footer nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 1em;
+}
+
 nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -159,6 +206,8 @@ nav ul li:last-of-type {
 */
 /*
 A fizzy button spews colorful particles on hover
+Inspiration: https://codepen.io/webLeister/pen/XwGENz
+
 The button must have a "fizzy-spots-container"
 Inside this container are 52 "fizzy-spot" divs
     Index 1 - 20: top side spots
@@ -166,7 +215,7 @@ Inside this container are 52 "fizzy-spot" divs
     Index 41-46: left side spots
     Index 47-52: right side spots
 
-HTML templates:
+HTML template:
 <button>
     <div class="fizzy-spots-container>
         <div class="fizzy-spot"></div>
@@ -185,54 +234,54 @@ HTML templates:
   position: absolute;
   border-radius: 100px;
   opacity: 0;
-  -webkit-animation: opacity 1s;
-          animation: opacity 1s;
+  -webkit-animation: changeOpacity 1s;
+          animation: changeOpacity 1s;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(1) {
-  -webkit-transform-origin: 87px 12px;
-          transform-origin: 87px 12px;
-  background: #d1be7b;
+  -webkit-transform-origin: 87px 19px;
+          transform-origin: 87px 19px;
+  background: #a6d07c;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.9s;
-  transition: all 0.9s;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(2) {
-  -webkit-transform-origin: 86px 19px;
-          transform-origin: 86px 19px;
-  background: #8dd477;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 1s;
-  transition: all 1s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(3) {
-  -webkit-transform-origin: 82px 10px;
-          transform-origin: 82px 10px;
-  background: #b2d576;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(4) {
-  -webkit-transform-origin: 82px 11px;
-          transform-origin: 82px 11px;
-  background: #b2d279;
+  -webkit-transform-origin: 80px 19px;
+          transform-origin: 80px 19px;
+  background: #d276d5;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
   -webkit-transition: all 0.6s;
   transition: all 0.6s;
 }
 
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(3) {
+  -webkit-transform-origin: 81px 18px;
+          transform-origin: 81px 18px;
+  background: #7fd17b;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(4) {
+  -webkit-transform-origin: 86px 15px;
+          transform-origin: 86px 15px;
+  background: #7c86d0;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(5) {
-  -webkit-transform-origin: 88px 15px;
-          transform-origin: 88px 15px;
-  background: #80d378;
+  -webkit-transform-origin: 87px 16px;
+          transform-origin: 87px 16px;
+  background: #9fd676;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
   -webkit-transition: all 0.6s;
@@ -240,19 +289,19 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(6) {
-  -webkit-transform-origin: 86px 11px;
-          transform-origin: 86px 11px;
-  background: #7488d8;
+  -webkit-transform-origin: 83px 15px;
+          transform-origin: 83px 15px;
+  background: #d49577;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(7) {
-  -webkit-transform-origin: 82px 16px;
-          transform-origin: 82px 16px;
-  background: #d48177;
+  -webkit-transform-origin: 85px 12px;
+          transform-origin: 85px 12px;
+  background: #d59376;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
   -webkit-transition: all 0.5s;
@@ -260,59 +309,59 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(8) {
-  -webkit-transform-origin: 80px 15px;
-          transform-origin: 80px 15px;
-  background: #7ad0d1;
+  -webkit-transform-origin: 89px 11px;
+          transform-origin: 89px 11px;
+  background: #d17a87;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.7s;
-  transition: all 0.7s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(9) {
-  -webkit-transform-origin: 89px 17px;
-          transform-origin: 89px 17px;
-  background: #d17a83;
+  -webkit-transform-origin: 83px 17px;
+          transform-origin: 83px 17px;
+  background: #d29879;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(10) {
-  -webkit-transform-origin: 87px 11px;
-          transform-origin: 87px 11px;
-  background: #d4779c;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.9s;
-  transition: all 0.9s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(11) {
-  -webkit-transform-origin: 84px 17px;
-          transform-origin: 84px 17px;
-  background: #c07cd0;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(12) {
-  -webkit-transform-origin: 82px 15px;
-          transform-origin: 82px 15px;
-  background: #7cd0b7;
+  -webkit-transform-origin: 89px 16px;
+          transform-origin: 89px 16px;
+  background: #75d782;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
   -webkit-transition: all 0.7s;
   transition: all 0.7s;
 }
 
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(11) {
+  -webkit-transform-origin: 88px 16px;
+          transform-origin: 88px 16px;
+  background: #bcd07c;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(12) {
+  -webkit-transform-origin: 80px 14px;
+          transform-origin: 80px 14px;
+  background: #ccd378;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(13) {
-  -webkit-transform-origin: 87px 19px;
-          transform-origin: 87px 19px;
-  background: #d0c57c;
+  -webkit-transform-origin: 82px 19px;
+          transform-origin: 82px 19px;
+  background: #75a7d7;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
   -webkit-transition: all 0.7s;
@@ -320,99 +369,99 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(14) {
-  -webkit-transform-origin: 84px 16px;
-          transform-origin: 84px 16px;
-  background: #d6a976;
+  -webkit-transform-origin: 86px 16px;
+          transform-origin: 86px 16px;
+  background: #d676ce;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(15) {
-  -webkit-transform-origin: 82px 12px;
-          transform-origin: 82px 12px;
-  background: #b4d07c;
+  -webkit-transform-origin: 81px 18px;
+          transform-origin: 81px 18px;
+  background: #d77592;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(16) {
+  -webkit-transform-origin: 88px 16px;
+          transform-origin: 88px 16px;
+  background: #75d7a4;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(16) {
-  -webkit-transform-origin: 85px 19px;
-          transform-origin: 85px 19px;
-  background: #d17a8c;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.6s;
-  transition: all 0.6s;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(17) {
   -webkit-transform-origin: 81px 15px;
           transform-origin: 81px 15px;
-  background: #a67bd1;
+  background: #d17f7b;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(18) {
+  -webkit-transform-origin: 86px 13px;
+          transform-origin: 86px 13px;
+  background: #76d5a3;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(19) {
+  -webkit-transform-origin: 89px 19px;
+          transform-origin: 89px 19px;
+  background: #8fd775;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(20) {
+  -webkit-transform-origin: 82px 18px;
+          transform-origin: 82px 18px;
+  background: #75d77b;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
   -webkit-transition: all 0.9s;
   transition: all 0.9s;
 }
 
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(18) {
-  -webkit-transform-origin: 81px 11px;
-          transform-origin: 81px 11px;
-  background: #b2d279;
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(21) {
+  -webkit-transform-origin: 82px 15px;
+          transform-origin: 82px 15px;
+  background: #d17b8d;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(19) {
-  -webkit-transform-origin: 89px 13px;
-          transform-origin: 89px 13px;
-  background: #7488d8;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.9s;
-  transition: all 0.9s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(20) {
-  -webkit-transform-origin: 86px 15px;
-          transform-origin: 86px 15px;
-  background: #7493d8;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.1s;
-  transition: all 0.1s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(21) {
-  -webkit-transform-origin: 80px 19px;
-          transform-origin: 80px 19px;
-  background: #d68e76;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(22) {
-  -webkit-transform-origin: 88px 18px;
-          transform-origin: 88px 18px;
-  background: #d3ca78;
+  -webkit-transform-origin: 89px 10px;
+          transform-origin: 89px 10px;
+  background: #d2ac79;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.9s;
-  transition: all 0.9s;
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(23) {
-  -webkit-transform-origin: 87px 10px;
-          transform-origin: 87px 10px;
-  background: #9279d2;
+  -webkit-transform-origin: 81px 13px;
+          transform-origin: 81px 13px;
+  background: #79d2d2;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
   -webkit-transition: all 0.1s;
@@ -420,59 +469,59 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(24) {
-  -webkit-transform-origin: 88px 15px;
-          transform-origin: 88px 15px;
-  background: #d07f7c;
+  -webkit-transform-origin: 83px 18px;
+          transform-origin: 83px 18px;
+  background: #d17f7b;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(25) {
-  -webkit-transform-origin: 89px 18px;
-          transform-origin: 89px 18px;
-  background: #7aa7d1;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.8s;
-  transition: all 0.8s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(26) {
-  -webkit-transform-origin: 88px 13px;
-          transform-origin: 88px 13px;
-  background: #82d17b;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(27) {
-  -webkit-transform-origin: 84px 18px;
-          transform-origin: 84px 18px;
-  background: #8376d5;
+  -webkit-transform-origin: 81px 15px;
+          transform-origin: 81px 15px;
+  background: #b07ad1;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
   -webkit-transition: all 1s;
   transition: all 1s;
 }
 
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(28) {
-  -webkit-transform-origin: 89px 12px;
-          transform-origin: 89px 12px;
-  background: #8976d5;
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(26) {
+  -webkit-transform-origin: 82px 18px;
+          transform-origin: 82px 18px;
+  background: #b374d8;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(27) {
+  -webkit-transform-origin: 82px 13px;
+          transform-origin: 82px 13px;
+  background: #a17bd1;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(28) {
+  -webkit-transform-origin: 84px 12px;
+          transform-origin: 84px 12px;
+  background: #bad477;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(29) {
-  -webkit-transform-origin: 82px 14px;
-          transform-origin: 82px 14px;
-  background: #957bd1;
+  -webkit-transform-origin: 87px 11px;
+          transform-origin: 87px 11px;
+  background: #8375d7;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
   -webkit-transition: all 0.6s;
@@ -480,19 +529,19 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(30) {
-  -webkit-transform-origin: 80px 11px;
-          transform-origin: 80px 11px;
-  background: #75d7ca;
+  -webkit-transform-origin: 82px 17px;
+          transform-origin: 82px 17px;
+  background: #a379d2;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: all 0.9s;
+  transition: all 0.9s;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(31) {
-  -webkit-transform-origin: 87px 17px;
-          transform-origin: 87px 17px;
-  background: #d1937a;
+  -webkit-transform-origin: 80px 11px;
+          transform-origin: 80px 11px;
+  background: #d29579;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
   -webkit-transition: all 0.6s;
@@ -500,49 +549,49 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(32) {
-  -webkit-transform-origin: 82px 18px;
-          transform-origin: 82px 18px;
-  background: #a3d378;
+  -webkit-transform-origin: 82px 16px;
+          transform-origin: 82px 16px;
+  background: #967cd0;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(33) {
-  -webkit-transform-origin: 89px 15px;
-          transform-origin: 89px 15px;
-  background: #d17abf;
+  -webkit-transform-origin: 87px 11px;
+          transform-origin: 87px 11px;
+  background: #7cbfd0;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.8s;
-  transition: all 0.8s;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(34) {
-  -webkit-transform-origin: 87px 11px;
-          transform-origin: 87px 11px;
-  background: #d6767f;
+  -webkit-transform-origin: 80px 13px;
+          transform-origin: 80px 13px;
+  background: #857bd1;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(35) {
-  -webkit-transform-origin: 81px 17px;
-          transform-origin: 81px 17px;
-  background: #78d3c6;
+  -webkit-transform-origin: 82px 11px;
+          transform-origin: 82px 11px;
+  background: #8176d6;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(36) {
-  -webkit-transform-origin: 81px 14px;
-          transform-origin: 81px 14px;
-  background: #d576ac;
+  -webkit-transform-origin: 87px 10px;
+          transform-origin: 87px 10px;
+  background: #d67681;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
   -webkit-transition: all 0.1s;
@@ -550,9 +599,9 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(37) {
-  -webkit-transform-origin: 81px 10px;
-          transform-origin: 81px 10px;
-  background: #76bfd6;
+  -webkit-transform-origin: 85px 16px;
+          transform-origin: 85px 16px;
+  background: #7997d2;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
   -webkit-transition: all 0.7s;
@@ -560,153 +609,153 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(38) {
-  -webkit-transform-origin: 88px 15px;
-          transform-origin: 88px 15px;
-  background: #d2797f;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(39) {
-  -webkit-transform-origin: 86px 12px;
-          transform-origin: 86px 12px;
-  background: #9b77d4;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(40) {
-  -webkit-transform-origin: 80px 15px;
-          transform-origin: 80px 15px;
-  background: #807cd0;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.9s;
-  transition: all 0.9s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(41) {
-  -webkit-transform-origin: 83px 13px;
-          transform-origin: 83px 13px;
-  background: #90d477;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(42) {
-  -webkit-transform-origin: 85px 15px;
-          transform-origin: 85px 15px;
-  background: #ca74d8;
+  -webkit-transform-origin: 89px 18px;
+          transform-origin: 89px 18px;
+  background: #79d298;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
   -webkit-transition: all 1s;
   transition: all 1s;
 }
 
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(43) {
-  -webkit-transform-origin: 86px 16px;
-          transform-origin: 86px 16px;
-  background: #d676be;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(44) {
-  -webkit-transform-origin: 83px 15px;
-          transform-origin: 83px 15px;
-  background: #d88b74;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(45) {
-  -webkit-transform-origin: 84px 10px;
-          transform-origin: 84px 10px;
-  background: #d676bb;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.9s;
-  transition: all 0.9s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(46) {
-  -webkit-transform-origin: 83px 17px;
-          transform-origin: 83px 17px;
-  background: #a4d17a;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(47) {
-  -webkit-transform-origin: 86px 12px;
-          transform-origin: 86px 12px;
-  background: #7ca7d0;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.8s;
-  transition: all 0.8s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(48) {
-  -webkit-transform-origin: 82px 13px;
-          transform-origin: 82px 13px;
-  background: #9a7ad1;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(49) {
-  -webkit-transform-origin: 84px 19px;
-          transform-origin: 84px 19px;
-  background: #7587d7;
-  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.8s;
-  transition: all 0.8s;
-}
-
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(50) {
-  -webkit-transform-origin: 88px 11px;
-          transform-origin: 88px 11px;
-  background: #d477ba;
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(39) {
+  -webkit-transform-origin: 83px 13px;
+          transform-origin: 83px 13px;
+  background: #cfd576;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
   -webkit-transition: all 0.6s;
   transition: all 0.6s;
 }
 
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(51) {
-  -webkit-transform-origin: 85px 19px;
-          transform-origin: 85px 19px;
-  background: #8fd477;
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(40) {
+  -webkit-transform-origin: 81px 18px;
+          transform-origin: 81px 18px;
+  background: #d2d378;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
-  -webkit-transition: all 0.7s;
-  transition: all 0.7s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
-.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(52) {
-  -webkit-transform-origin: 88px 14px;
-          transform-origin: 88px 14px;
-  background: #d17a96;
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(41) {
+  -webkit-transform-origin: 80px 18px;
+          transform-origin: 80px 18px;
+  background: #d0c37c;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(42) {
+  -webkit-transform-origin: 83px 12px;
+          transform-origin: 83px 12px;
+  background: #76d59f;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(43) {
+  -webkit-transform-origin: 86px 16px;
+          transform-origin: 86px 16px;
+  background: #d2a079;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(44) {
+  -webkit-transform-origin: 80px 10px;
+          transform-origin: 80px 10px;
+  background: #d47798;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(45) {
+  -webkit-transform-origin: 84px 16px;
+          transform-origin: 84px 16px;
+  background: #d874b1;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(46) {
+  -webkit-transform-origin: 87px 17px;
+          transform-origin: 87px 17px;
+  background: #d3d078;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(47) {
+  -webkit-transform-origin: 82px 11px;
+          transform-origin: 82px 11px;
+  background: #d0b87c;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(48) {
+  -webkit-transform-origin: 82px 11px;
+          transform-origin: 82px 11px;
+  background: #d0bb7c;
   -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
           box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
   -webkit-transition: all 1s;
   transition: all 1s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(49) {
+  -webkit-transform-origin: 89px 13px;
+          transform-origin: 89px 13px;
+  background: #d6767a;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(50) {
+  -webkit-transform-origin: 82px 15px;
+          transform-origin: 82px 15px;
+  background: #7b93d1;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(51) {
+  -webkit-transform-origin: 80px 11px;
+          transform-origin: 80px 11px;
+  background: #d07c83;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.button--fizzy .fizzy-spots-container .fizzy-spot:nth-of-type(52) {
+  -webkit-transform-origin: 81px 15px;
+          transform-origin: 81px 15px;
+  background: #9f7bd1;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(1) {
@@ -716,7 +765,7 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(2) {
-  padding: 3px;
+  padding: 4px;
   left: 1%;
   top: 100%;
 }
@@ -734,7 +783,7 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(5) {
-  padding: 5px;
+  padding: 4px;
   left: 17.5%;
   top: 100%;
 }
@@ -752,25 +801,25 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(8) {
-  padding: 5px;
+  padding: 3px;
   left: 34%;
   top: 100%;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(9) {
-  padding: 5px;
+  padding: 4px;
   left: 39.5%;
   top: 100%;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(10) {
-  padding: 5px;
+  padding: 4px;
   left: 45%;
   top: 100%;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(11) {
-  padding: 4px;
+  padding: 3px;
   left: 50.5%;
   top: 100%;
 }
@@ -782,13 +831,13 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(13) {
-  padding: 3px;
+  padding: 4px;
   left: 61.5%;
   top: 100%;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(14) {
-  padding: 3px;
+  padding: 4px;
   left: 67%;
   top: 100%;
 }
@@ -806,13 +855,13 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(17) {
-  padding: 4px;
+  padding: 3px;
   left: 83.5%;
   top: 100%;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(18) {
-  padding: 4px;
+  padding: 3px;
   left: 89%;
   top: 100%;
 }
@@ -836,19 +885,19 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(22) {
-  padding: 3px;
+  padding: 5px;
   left: 6.5%;
   top: -5%;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(23) {
-  padding: 4px;
+  padding: 3px;
   left: 12%;
   top: -5%;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(24) {
-  padding: 3px;
+  padding: 4px;
   left: 17.5%;
   top: -5%;
 }
@@ -860,19 +909,19 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(26) {
-  padding: 3px;
+  padding: 5px;
   left: 28.5%;
   top: -5%;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(27) {
-  padding: 5px;
+  padding: 3px;
   left: 34%;
   top: -5%;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(28) {
-  padding: 4px;
+  padding: 5px;
   left: 39.5%;
   top: -5%;
 }
@@ -890,7 +939,7 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(31) {
-  padding: 4px;
+  padding: 3px;
   left: 56%;
   top: -5%;
 }
@@ -902,7 +951,7 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(33) {
-  padding: 3px;
+  padding: 5px;
   left: 67%;
   top: -5%;
 }
@@ -932,7 +981,7 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(38) {
-  padding: 3px;
+  padding: 4px;
   left: 94.5%;
   top: -5%;
 }
@@ -944,7 +993,7 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(40) {
-  padding: 5px;
+  padding: 3px;
   left: 105.5%;
   top: -5%;
 }
@@ -956,31 +1005,31 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(42) {
-  padding: 4px;
+  padding: 5px;
   left: 98%;
   top: 40%;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(43) {
-  padding: 5px;
+  padding: 3px;
   left: 98%;
   top: 50%;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(44) {
-  padding: 4px;
+  padding: 3px;
   left: 98%;
   top: 60%;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(45) {
-  padding: 3px;
+  padding: 5px;
   left: 98%;
   top: 70%;
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(46) {
-  padding: 4px;
+  padding: 5px;
   left: 98%;
   top: 80%;
 }
@@ -992,7 +1041,7 @@ HTML templates:
 }
 
 .button--fizzy .fizzy-spots-container .fizzy-spot:nth-child(48) {
-  padding: 4px;
+  padding: 3px;
   left: -3%;
   top: 30%;
 }
@@ -1022,1514 +1071,1422 @@ HTML templates:
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(1) {
-  -webkit-animation: spot-1 0.5s 0.9s linear infinite;
-          animation: spot-1 0.5s 0.9s linear infinite;
+  -webkit-animation: moveSpot-1 0.5s 0.73333s linear infinite;
+          animation: moveSpot-1 0.5s 0.73333s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(2) {
-  -webkit-animation: spot-2 0.5s 0.35s linear infinite;
-          animation: spot-2 0.5s 0.35s linear infinite;
+  -webkit-animation: moveSpot-2 0.5s 0.64444s linear infinite;
+          animation: moveSpot-2 0.5s 0.64444s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(3) {
-  -webkit-animation: spot-3 0.5s 0.18s linear infinite;
-          animation: spot-3 0.5s 0.18s linear infinite;
+  -webkit-animation: moveSpot-3 0.5s 0.65s linear infinite;
+          animation: moveSpot-3 0.5s 0.65s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(4) {
-  -webkit-animation: spot-4 0.5s 0.35s linear infinite;
-          animation: spot-4 0.5s 0.35s linear infinite;
+  -webkit-animation: moveSpot-4 0.5s 0.9s linear infinite;
+          animation: moveSpot-4 0.5s 0.9s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(5) {
-  -webkit-animation: spot-5 0.5s 0.26667s linear infinite;
-          animation: spot-5 0.5s 0.26667s linear infinite;
+  -webkit-animation: moveSpot-5 0.5s 0.96667s linear infinite;
+          animation: moveSpot-5 0.5s 0.96667s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(6) {
-  -webkit-animation: spot-6 0.5s 0.78s linear infinite;
-          animation: spot-6 0.5s 0.78s linear infinite;
+  -webkit-animation: moveSpot-6 0.5s 0.54444s linear infinite;
+          animation: moveSpot-6 0.5s 0.54444s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(7) {
-  -webkit-animation: spot-7 0.5s 0.25714s linear infinite;
-          animation: spot-7 0.5s 0.25714s linear infinite;
+  -webkit-animation: moveSpot-7 0.5s 0.75714s linear infinite;
+          animation: moveSpot-7 0.5s 0.75714s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(8) {
-  -webkit-animation: spot-8 0.5s 0.24444s linear infinite;
-          animation: spot-8 0.5s 0.24444s linear infinite;
+  -webkit-animation: moveSpot-8 0.5s 0.64s linear infinite;
+          animation: moveSpot-8 0.5s 0.64s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(9) {
-  -webkit-animation: spot-9 0.5s 0.3s linear infinite;
-          animation: spot-9 0.5s 0.3s linear infinite;
+  -webkit-animation: moveSpot-9 0.5s 0.56667s linear infinite;
+          animation: moveSpot-9 0.5s 0.56667s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(10) {
-  -webkit-animation: spot-10 0.5s 0.8s linear infinite;
-          animation: spot-10 0.5s 0.8s linear infinite;
+  -webkit-animation: moveSpot-10 0.5s 0.9s linear infinite;
+          animation: moveSpot-10 0.5s 0.9s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(11) {
-  -webkit-animation: spot-11 0.5s 0.9s linear infinite;
-          animation: spot-11 0.5s 0.9s linear infinite;
+  -webkit-animation: moveSpot-11 0.5s 0.8s linear infinite;
+          animation: moveSpot-11 0.5s 0.8s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(12) {
-  -webkit-animation: spot-12 0.5s 0.3s linear infinite;
-          animation: spot-12 0.5s 0.3s linear infinite;
+  -webkit-animation: moveSpot-12 0.5s 0.9s linear infinite;
+          animation: moveSpot-12 0.5s 0.9s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(13) {
-  -webkit-animation: spot-13 0.5s 1.05714s linear infinite;
-          animation: spot-13 0.5s 1.05714s linear infinite;
+  -webkit-animation: moveSpot-13 0.5s 0.9s linear infinite;
+          animation: moveSpot-13 0.5s 0.9s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(14) {
-  -webkit-animation: spot-14 0.5s 0.6s linear infinite;
-          animation: spot-14 0.5s 0.6s linear infinite;
+  -webkit-animation: moveSpot-14 0.5s 0.9s linear infinite;
+          animation: moveSpot-14 0.5s 0.9s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(15) {
-  -webkit-animation: spot-15 0.5s 0.98s linear infinite;
-          animation: spot-15 0.5s 0.98s linear infinite;
+  -webkit-animation: moveSpot-15 0.5s 0.28s linear infinite;
+          animation: moveSpot-15 0.5s 0.28s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(16) {
-  -webkit-animation: spot-16 0.5s 0.6s linear infinite;
-          animation: spot-16 0.5s 0.6s linear infinite;
+  -webkit-animation: moveSpot-16 0.5s 0.53333s linear infinite;
+          animation: moveSpot-16 0.5s 0.53333s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(17) {
-  -webkit-animation: spot-17 0.5s 0.5s linear infinite;
-          animation: spot-17 0.5s 0.5s linear infinite;
+  -webkit-animation: moveSpot-17 0.5s 0.7s linear infinite;
+          animation: moveSpot-17 0.5s 0.7s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(18) {
-  -webkit-animation: spot-18 0.5s 0.8s linear infinite;
-          animation: spot-18 0.5s 0.8s linear infinite;
+  -webkit-animation: moveSpot-18 0.5s 0.88s linear infinite;
+          animation: moveSpot-18 0.5s 0.88s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(19) {
-  -webkit-animation: spot-19 0.5s 0.44s linear infinite;
-          animation: spot-19 0.5s 0.44s linear infinite;
+  -webkit-animation: moveSpot-19 0.5s 0.38s linear infinite;
+          animation: moveSpot-19 0.5s 0.38s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(20) {
-  -webkit-animation: spot-20 0.5s 1.1s linear infinite;
-          animation: spot-20 0.5s 1.1s linear infinite;
+  -webkit-animation: moveSpot-20 0.5s 0.9s linear infinite;
+          animation: moveSpot-20 0.5s 0.9s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(21) {
-  -webkit-animation: spot-21 0.5s 0.44s linear infinite;
-          animation: spot-21 0.5s 0.44s linear infinite;
+  -webkit-animation: moveSpot-21 0.5s 0.86667s linear infinite;
+          animation: moveSpot-21 0.5s 0.86667s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(22) {
-  -webkit-animation: spot-22 0.5s 1s linear infinite;
-          animation: spot-22 0.5s 1s linear infinite;
+  -webkit-animation: moveSpot-22 0.5s 0.34s linear infinite;
+          animation: moveSpot-22 0.5s 0.34s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(23) {
-  -webkit-animation: spot-23 0.5s 0.44s linear infinite;
-          animation: spot-23 0.5s 0.44s linear infinite;
+  -webkit-animation: moveSpot-23 0.5s 0.6s linear infinite;
+          animation: moveSpot-23 0.5s 0.6s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(24) {
-  -webkit-animation: spot-24 0.5s 0.9s linear infinite;
-          animation: spot-24 0.5s 0.9s linear infinite;
+  -webkit-animation: moveSpot-24 0.5s 0.23333s linear infinite;
+          animation: moveSpot-24 0.5s 0.23333s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(25) {
-  -webkit-animation: spot-25 0.5s 0.68s linear infinite;
-          animation: spot-25 0.5s 0.68s linear infinite;
+  -webkit-animation: moveSpot-25 0.5s 0.6s linear infinite;
+          animation: moveSpot-25 0.5s 0.6s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(26) {
-  -webkit-animation: spot-26 0.5s 0.76667s linear infinite;
-          animation: spot-26 0.5s 0.76667s linear infinite;
+  -webkit-animation: moveSpot-26 0.5s 0.55714s linear infinite;
+          animation: moveSpot-26 0.5s 0.55714s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(27) {
-  -webkit-animation: spot-27 0.5s 0.25714s linear infinite;
-          animation: spot-27 0.5s 0.25714s linear infinite;
+  -webkit-animation: moveSpot-27 0.5s 0.75714s linear infinite;
+          animation: moveSpot-27 0.5s 0.75714s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(28) {
-  -webkit-animation: spot-28 0.5s 0.68s linear infinite;
-          animation: spot-28 0.5s 0.68s linear infinite;
+  -webkit-animation: moveSpot-28 0.5s 0.15s linear infinite;
+          animation: moveSpot-28 0.5s 0.15s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(29) {
-  -webkit-animation: spot-29 0.5s 0.46667s linear infinite;
-          animation: spot-29 0.5s 0.46667s linear infinite;
+  -webkit-animation: moveSpot-29 0.5s 0.2s linear infinite;
+          animation: moveSpot-29 0.5s 0.2s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(30) {
-  -webkit-animation: spot-30 0.5s 0.86667s linear infinite;
-          animation: spot-30 0.5s 0.86667s linear infinite;
+  -webkit-animation: moveSpot-30 0.5s 1.1s linear infinite;
+          animation: moveSpot-30 0.5s 1.1s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(31) {
-  -webkit-animation: spot-31 0.5s 0.88s linear infinite;
-          animation: spot-31 0.5s 0.88s linear infinite;
+  -webkit-animation: moveSpot-31 0.5s 0.63333s linear infinite;
+          animation: moveSpot-31 0.5s 0.63333s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(32) {
-  -webkit-animation: spot-32 0.5s 0.25714s linear infinite;
-          animation: spot-32 0.5s 0.25714s linear infinite;
+  -webkit-animation: moveSpot-32 0.5s 0.3s linear infinite;
+          animation: moveSpot-32 0.5s 0.3s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(33) {
-  -webkit-animation: spot-33 0.5s 0.74444s linear infinite;
-          animation: spot-33 0.5s 0.74444s linear infinite;
+  -webkit-animation: moveSpot-33 0.5s 0.18s linear infinite;
+          animation: moveSpot-33 0.5s 0.18s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(34) {
-  -webkit-animation: spot-34 0.5s 0.7s linear infinite;
-          animation: spot-34 0.5s 0.7s linear infinite;
+  -webkit-animation: moveSpot-34 0.5s 0.24s linear infinite;
+          animation: moveSpot-34 0.5s 0.24s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(35) {
-  -webkit-animation: spot-35 0.5s 0.7s linear infinite;
-          animation: spot-35 0.5s 0.7s linear infinite;
+  -webkit-animation: moveSpot-35 0.5s 0.25714s linear infinite;
+          animation: moveSpot-35 0.5s 0.25714s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(36) {
-  -webkit-animation: spot-36 0.5s 1.03333s linear infinite;
-          animation: spot-36 0.5s 1.03333s linear infinite;
+  -webkit-animation: moveSpot-36 0.5s 0.46667s linear infinite;
+          animation: moveSpot-36 0.5s 0.46667s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(37) {
-  -webkit-animation: spot-37 0.5s 0.55714s linear infinite;
-          animation: spot-37 0.5s 0.55714s linear infinite;
+  -webkit-animation: moveSpot-37 0.5s 1.06667s linear infinite;
+          animation: moveSpot-37 0.5s 1.06667s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(38) {
-  -webkit-animation: spot-38 0.5s 0.73333s linear infinite;
-          animation: spot-38 0.5s 0.73333s linear infinite;
+  -webkit-animation: moveSpot-38 0.5s 0.4s linear infinite;
+          animation: moveSpot-38 0.5s 0.4s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(39) {
-  -webkit-animation: spot-39 0.5s 0.9s linear infinite;
-          animation: spot-39 0.5s 0.9s linear infinite;
+  -webkit-animation: moveSpot-39 0.5s 0.86667s linear infinite;
+          animation: moveSpot-39 0.5s 0.86667s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(40) {
-  -webkit-animation: spot-40 0.5s 0.75s linear infinite;
-          animation: spot-40 0.5s 0.75s linear infinite;
+  -webkit-animation: moveSpot-40 0.5s 1s linear infinite;
+          animation: moveSpot-40 0.5s 1s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(41) {
-  -webkit-animation: spot-41 0.5s 0.36667s linear infinite;
-          animation: spot-41 0.5s 0.36667s linear infinite;
+  -webkit-animation: moveSpot-41 0.5s 0.86667s linear infinite;
+          animation: moveSpot-41 0.5s 0.86667s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(42) {
-  -webkit-animation: spot-42 0.5s 1.1s linear infinite;
-          animation: spot-42 0.5s 1.1s linear infinite;
+  -webkit-animation: moveSpot-42 0.5s 1.03333s linear infinite;
+          animation: moveSpot-42 0.5s 1.03333s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(43) {
-  -webkit-animation: spot-43 0.5s 1s linear infinite;
-          animation: spot-43 0.5s 1s linear infinite;
+  -webkit-animation: moveSpot-43 0.5s 1.05714s linear infinite;
+          animation: moveSpot-43 0.5s 1.05714s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(44) {
-  -webkit-animation: spot-44 0.5s 0.34444s linear infinite;
-          animation: spot-44 0.5s 0.34444s linear infinite;
+  -webkit-animation: moveSpot-44 0.5s 0.9s linear infinite;
+          animation: moveSpot-44 0.5s 0.9s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(45) {
-  -webkit-animation: spot-45 0.5s 0.84s linear infinite;
-          animation: spot-45 0.5s 0.84s linear infinite;
+  -webkit-animation: moveSpot-45 0.5s 1.4s linear infinite;
+          animation: moveSpot-45 0.5s 1.4s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(46) {
-  -webkit-animation: spot-46 0.5s 0.2s linear infinite;
-          animation: spot-46 0.5s 0.2s linear infinite;
+  -webkit-animation: moveSpot-46 0.5s 0.43333s linear infinite;
+          animation: moveSpot-46 0.5s 0.43333s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(47) {
-  -webkit-animation: spot-47 0.5s 0.75714s linear infinite;
-          animation: spot-47 0.5s 0.75714s linear infinite;
+  -webkit-animation: moveSpot-47 0.5s 0.6s linear infinite;
+          animation: moveSpot-47 0.5s 0.6s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(48) {
-  -webkit-animation: spot-48 0.5s 0.9s linear infinite;
-          animation: spot-48 0.5s 0.9s linear infinite;
+  -webkit-animation: moveSpot-48 0.5s 0.55s linear infinite;
+          animation: moveSpot-48 0.5s 0.55s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(49) {
-  -webkit-animation: spot-49 0.5s 1s linear infinite;
-          animation: spot-49 0.5s 1s linear infinite;
+  -webkit-animation: moveSpot-49 0.5s 0.5s linear infinite;
+          animation: moveSpot-49 0.5s 0.5s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(50) {
-  -webkit-animation: spot-50 0.5s 0.58s linear infinite;
-          animation: spot-50 0.5s 0.58s linear infinite;
+  -webkit-animation: moveSpot-50 0.5s 1.05s linear infinite;
+          animation: moveSpot-50 0.5s 1.05s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(51) {
-  -webkit-animation: spot-51 0.5s 0.54s linear infinite;
-          animation: spot-51 0.5s 0.54s linear infinite;
+  -webkit-animation: moveSpot-51 0.5s 0.75714s linear infinite;
+          animation: moveSpot-51 0.5s 0.75714s linear infinite;
 }
 
 .button--fizzy:hover .fizzy-spot:nth-of-type(52) {
-  -webkit-animation: spot-52 0.5s 0.55s linear infinite;
-          animation: spot-52 0.5s 0.55s linear infinite;
+  -webkit-animation: moveSpot-52 0.5s 0.78s linear infinite;
+          animation: moveSpot-52 0.5s 0.78s linear infinite;
 }
 
-@-webkit-keyframes spot-1 {
+@-webkit-keyframes changeOpacity {
+  from {
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes changeOpacity {
+  from {
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes moveSpot-1 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(-18px);
             transform: translateY(30px) translatex(-18px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-1 {
+@keyframes moveSpot-1 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(-18px);
             transform: translateY(30px) translatex(-18px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-2 {
+@-webkit-keyframes moveSpot-2 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(-16px);
             transform: translateY(30px) translatex(-16px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-2 {
+@keyframes moveSpot-2 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(-16px);
             transform: translateY(30px) translatex(-16px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-3 {
+@-webkit-keyframes moveSpot-3 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(-14px);
             transform: translateY(30px) translatex(-14px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-3 {
+@keyframes moveSpot-3 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(-14px);
             transform: translateY(30px) translatex(-14px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-4 {
+@-webkit-keyframes moveSpot-4 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(-12px);
             transform: translateY(30px) translatex(-12px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-4 {
+@keyframes moveSpot-4 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(-12px);
             transform: translateY(30px) translatex(-12px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-5 {
+@-webkit-keyframes moveSpot-5 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(-10px);
             transform: translateY(30px) translatex(-10px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-5 {
+@keyframes moveSpot-5 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(-10px);
             transform: translateY(30px) translatex(-10px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-6 {
+@-webkit-keyframes moveSpot-6 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(-8px);
             transform: translateY(30px) translatex(-8px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-6 {
+@keyframes moveSpot-6 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(-8px);
             transform: translateY(30px) translatex(-8px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-7 {
+@-webkit-keyframes moveSpot-7 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(-6px);
             transform: translateY(30px) translatex(-6px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-7 {
+@keyframes moveSpot-7 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(-6px);
             transform: translateY(30px) translatex(-6px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-8 {
+@-webkit-keyframes moveSpot-8 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(-4px);
             transform: translateY(30px) translatex(-4px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-8 {
+@keyframes moveSpot-8 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(-4px);
             transform: translateY(30px) translatex(-4px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-9 {
+@-webkit-keyframes moveSpot-9 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(-2px);
             transform: translateY(30px) translatex(-2px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-9 {
+@keyframes moveSpot-9 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(-2px);
             transform: translateY(30px) translatex(-2px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-10 {
+@-webkit-keyframes moveSpot-10 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(0px);
             transform: translateY(30px) translatex(0px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-10 {
+@keyframes moveSpot-10 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(0px);
             transform: translateY(30px) translatex(0px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-11 {
+@-webkit-keyframes moveSpot-11 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(2px);
             transform: translateY(30px) translatex(2px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-11 {
+@keyframes moveSpot-11 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(2px);
             transform: translateY(30px) translatex(2px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-12 {
+@-webkit-keyframes moveSpot-12 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(4px);
             transform: translateY(30px) translatex(4px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-12 {
+@keyframes moveSpot-12 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(4px);
             transform: translateY(30px) translatex(4px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-13 {
+@-webkit-keyframes moveSpot-13 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(6px);
             transform: translateY(30px) translatex(6px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-13 {
+@keyframes moveSpot-13 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(6px);
             transform: translateY(30px) translatex(6px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-14 {
+@-webkit-keyframes moveSpot-14 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(8px);
             transform: translateY(30px) translatex(8px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-14 {
+@keyframes moveSpot-14 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(8px);
             transform: translateY(30px) translatex(8px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-15 {
+@-webkit-keyframes moveSpot-15 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(10px);
             transform: translateY(30px) translatex(10px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-15 {
+@keyframes moveSpot-15 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(10px);
             transform: translateY(30px) translatex(10px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-16 {
+@-webkit-keyframes moveSpot-16 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(12px);
             transform: translateY(30px) translatex(12px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-16 {
+@keyframes moveSpot-16 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(12px);
             transform: translateY(30px) translatex(12px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-17 {
+@-webkit-keyframes moveSpot-17 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(14px);
             transform: translateY(30px) translatex(14px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-17 {
+@keyframes moveSpot-17 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(14px);
             transform: translateY(30px) translatex(14px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-18 {
+@-webkit-keyframes moveSpot-18 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(16px);
             transform: translateY(30px) translatex(16px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-18 {
+@keyframes moveSpot-18 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(16px);
             transform: translateY(30px) translatex(16px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-19 {
+@-webkit-keyframes moveSpot-19 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(18px);
             transform: translateY(30px) translatex(18px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-19 {
+@keyframes moveSpot-19 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(18px);
             transform: translateY(30px) translatex(18px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-20 {
+@-webkit-keyframes moveSpot-20 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(20px);
             transform: translateY(30px) translatex(20px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-20 {
+@keyframes moveSpot-20 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(30px) translatex(20px);
             transform: translateY(30px) translatex(20px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-21 {
+@-webkit-keyframes moveSpot-21 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(-8px);
             transform: translateY(-30px) translatex(-8px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-21 {
+@keyframes moveSpot-21 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(-8px);
             transform: translateY(-30px) translatex(-8px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-22 {
+@-webkit-keyframes moveSpot-22 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(-6px);
             transform: translateY(-30px) translatex(-6px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-22 {
+@keyframes moveSpot-22 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(-6px);
             transform: translateY(-30px) translatex(-6px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-23 {
+@-webkit-keyframes moveSpot-23 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(-4px);
             transform: translateY(-30px) translatex(-4px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-23 {
+@keyframes moveSpot-23 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(-4px);
             transform: translateY(-30px) translatex(-4px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-24 {
+@-webkit-keyframes moveSpot-24 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(-2px);
             transform: translateY(-30px) translatex(-2px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-24 {
+@keyframes moveSpot-24 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(-2px);
             transform: translateY(-30px) translatex(-2px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-25 {
+@-webkit-keyframes moveSpot-25 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(0px);
             transform: translateY(-30px) translatex(0px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-25 {
+@keyframes moveSpot-25 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(0px);
             transform: translateY(-30px) translatex(0px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-26 {
+@-webkit-keyframes moveSpot-26 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(2px);
             transform: translateY(-30px) translatex(2px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-26 {
+@keyframes moveSpot-26 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(2px);
             transform: translateY(-30px) translatex(2px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-27 {
+@-webkit-keyframes moveSpot-27 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(4px);
             transform: translateY(-30px) translatex(4px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-27 {
+@keyframes moveSpot-27 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(4px);
             transform: translateY(-30px) translatex(4px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-28 {
+@-webkit-keyframes moveSpot-28 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(6px);
             transform: translateY(-30px) translatex(6px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-28 {
+@keyframes moveSpot-28 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(6px);
             transform: translateY(-30px) translatex(6px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-29 {
+@-webkit-keyframes moveSpot-29 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(8px);
             transform: translateY(-30px) translatex(8px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-29 {
+@keyframes moveSpot-29 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(8px);
             transform: translateY(-30px) translatex(8px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-30 {
+@-webkit-keyframes moveSpot-30 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(10px);
             transform: translateY(-30px) translatex(10px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-30 {
+@keyframes moveSpot-30 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(10px);
             transform: translateY(-30px) translatex(10px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-31 {
+@-webkit-keyframes moveSpot-31 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(12px);
             transform: translateY(-30px) translatex(12px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-31 {
+@keyframes moveSpot-31 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(12px);
             transform: translateY(-30px) translatex(12px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-32 {
+@-webkit-keyframes moveSpot-32 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(14px);
             transform: translateY(-30px) translatex(14px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-32 {
+@keyframes moveSpot-32 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(14px);
             transform: translateY(-30px) translatex(14px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-33 {
+@-webkit-keyframes moveSpot-33 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(16px);
             transform: translateY(-30px) translatex(16px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-33 {
+@keyframes moveSpot-33 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(16px);
             transform: translateY(-30px) translatex(16px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-34 {
+@-webkit-keyframes moveSpot-34 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(18px);
             transform: translateY(-30px) translatex(18px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-34 {
+@keyframes moveSpot-34 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(18px);
             transform: translateY(-30px) translatex(18px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-35 {
+@-webkit-keyframes moveSpot-35 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(20px);
             transform: translateY(-30px) translatex(20px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-35 {
+@keyframes moveSpot-35 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(20px);
             transform: translateY(-30px) translatex(20px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-36 {
+@-webkit-keyframes moveSpot-36 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(22px);
             transform: translateY(-30px) translatex(22px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-36 {
+@keyframes moveSpot-36 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(22px);
             transform: translateY(-30px) translatex(22px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-37 {
+@-webkit-keyframes moveSpot-37 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(24px);
             transform: translateY(-30px) translatex(24px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-37 {
+@keyframes moveSpot-37 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(24px);
             transform: translateY(-30px) translatex(24px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-38 {
+@-webkit-keyframes moveSpot-38 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(26px);
             transform: translateY(-30px) translatex(26px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-38 {
+@keyframes moveSpot-38 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(26px);
             transform: translateY(-30px) translatex(26px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-39 {
+@-webkit-keyframes moveSpot-39 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(28px);
             transform: translateY(-30px) translatex(28px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-39 {
+@keyframes moveSpot-39 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(28px);
             transform: translateY(-30px) translatex(28px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-40 {
+@-webkit-keyframes moveSpot-40 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(30px);
             transform: translateY(-30px) translatex(30px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-40 {
+@keyframes moveSpot-40 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-30px) translatex(30px);
             transform: translateY(-30px) translatex(30px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-41 {
+@-webkit-keyframes moveSpot-41 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-4px) translatex(40px);
             transform: translateY(-4px) translatex(40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-41 {
+@keyframes moveSpot-41 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-4px) translatex(40px);
             transform: translateY(-4px) translatex(40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-42 {
+@-webkit-keyframes moveSpot-42 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-2px) translatex(40px);
             transform: translateY(-2px) translatex(40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-42 {
+@keyframes moveSpot-42 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-2px) translatex(40px);
             transform: translateY(-2px) translatex(40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-43 {
+@-webkit-keyframes moveSpot-43 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(0px) translatex(40px);
             transform: translateY(0px) translatex(40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-43 {
+@keyframes moveSpot-43 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(0px) translatex(40px);
             transform: translateY(0px) translatex(40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-44 {
+@-webkit-keyframes moveSpot-44 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(2px) translatex(40px);
             transform: translateY(2px) translatex(40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-44 {
+@keyframes moveSpot-44 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(2px) translatex(40px);
             transform: translateY(2px) translatex(40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-45 {
+@-webkit-keyframes moveSpot-45 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(4px) translatex(40px);
             transform: translateY(4px) translatex(40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-45 {
+@keyframes moveSpot-45 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(4px) translatex(40px);
             transform: translateY(4px) translatex(40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-46 {
+@-webkit-keyframes moveSpot-46 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(6px) translatex(40px);
             transform: translateY(6px) translatex(40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-46 {
+@keyframes moveSpot-46 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(6px) translatex(40px);
             transform: translateY(6px) translatex(40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-47 {
+@-webkit-keyframes moveSpot-47 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-5px) translatex(-40px);
             transform: translateY(-5px) translatex(-40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-47 {
+@keyframes moveSpot-47 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-5px) translatex(-40px);
             transform: translateY(-5px) translatex(-40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-48 {
+@-webkit-keyframes moveSpot-48 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-3px) translatex(-40px);
             transform: translateY(-3px) translatex(-40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-48 {
+@keyframes moveSpot-48 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-3px) translatex(-40px);
             transform: translateY(-3px) translatex(-40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-49 {
+@-webkit-keyframes moveSpot-49 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-1px) translatex(-40px);
             transform: translateY(-1px) translatex(-40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-49 {
+@keyframes moveSpot-49 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(-1px) translatex(-40px);
             transform: translateY(-1px) translatex(-40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-50 {
+@-webkit-keyframes moveSpot-50 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(1px) translatex(-40px);
             transform: translateY(1px) translatex(-40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-50 {
+@keyframes moveSpot-50 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(1px) translatex(-40px);
             transform: translateY(1px) translatex(-40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-51 {
+@-webkit-keyframes moveSpot-51 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(3px) translatex(-40px);
             transform: translateY(3px) translatex(-40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-51 {
+@keyframes moveSpot-51 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(3px) translatex(-40px);
             transform: translateY(3px) translatex(-40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@-webkit-keyframes spot-52 {
+@-webkit-keyframes moveSpot-52 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(5px) translatex(-40px);
             transform: translateY(5px) translatex(-40px);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes spot-52 {
+@keyframes moveSpot-52 {
   from {
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(5px) translatex(-40px);
             transform: translateY(5px) translatex(-40px);
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes opacity {
-  from {
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes opacity {
-  from {
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes rotate {
-  from {
-    opacity: .8;
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-    opacity: .8;
-  }
-}
-
-@keyframes rotate {
-  from {
-    opacity: .8;
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-    opacity: .8;
-  }
-}
-
-@-webkit-keyframes down {
-  from {
-    left: 10px;
-  }
-  to {
-    left: 57px;
-  }
-}
-
-@keyframes down {
-  from {
-    left: 10px;
-  }
-  to {
-    left: 57px;
-  }
-}
-
-@-webkit-keyframes spew {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 0.8;
-  }
-}
-
-@keyframes spew {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 0.8;
-  }
-}
-
-@-webkit-keyframes final {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes final {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes finalbox {
-  from {
-  }
-  to {
-    width: 50px;
-  }
-}
-
-@keyframes finalbox {
-  from {
-  }
-  to {
-    width: 50px;
+    opacity: 0.9;
   }
 }
 
@@ -2546,6 +2503,29 @@ figure.skill-logo img {
 
 figure.skill-logo figcaption {
   font-size: 0.7rem;
+}
+
+.socialBar {
+  width: 100%;
+}
+
+.socialBar ul {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-columns: (25px)[4];
+      grid-template-columns: repeat(4, 25px);
+  gap: 2em;
+}
+
+.socialBar ul img {
+  width: 25px;
+}
+
+.socialBar ul img:hover {
+  opacity: 0.5;
 }
 
 section.hero {
@@ -2583,6 +2563,7 @@ section.hero {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-bottom: 2em;
 }
 
 .hero__actions .hero__link {
@@ -2596,7 +2577,19 @@ section.hero {
   margin-top: 1em;
 }
 
-@media only screen and (min-width: 481px) {
+.hero__socials {
+  opacity: 0.85;
+}
+
+@media only screen and (min-width: 1024px) {
+  .hero__socials ul {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
   .hero {
     height: 100vh;
     text-align: left;
@@ -2659,7 +2652,7 @@ section.projects .projects__see-more:hover {
   gap: 1em;
 }
 
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 1024px) {
   .projects__gallery ul {
     gap: 2.37em;
   }
@@ -2750,15 +2743,26 @@ section.projects .projects__see-more:hover {
 }
 
 .project__icons {
-  padding: 1em;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(10px, 13%))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(10px, 13%));
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 2rem;
+}
+
+.project__icons figure {
+  padding: 0.3em 0.8em;
+}
+
+.project__icons figure img {
+  width: 31px;
+  height: 30px;
+}
+
+.project__icons figure figcaption {
+  font-size: 0.64rem;
 }
 
 .project__thumbnail-padded-aspect-ratio-container {
@@ -2807,6 +2811,8 @@ section.skills {
 
 section.skills h1 {
   color: #F2182E;
+  margin: 0;
+  padding: 0;
 }
 
 .skills-gallery {
@@ -2823,7 +2829,7 @@ section.skills h1 {
   padding: 2em 0;
 }
 
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 1024px) {
   .skills-gallery {
     grid-auto-flow: column;
     -webkit-box-align: start;
@@ -2909,5 +2915,138 @@ section.skills h1 {
 section.contact {
   color: #d9d9d9;
   background: #C0282E;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media only screen and (min-width: 1024px) {
+  section.contact {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
+.contact__text-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+@media only screen and (min-width: 1024px) {
+  .contact__text-content {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
+.contact__text-content h1 {
+  margin: 0;
+}
+
+.contact__text-content span {
+  display: none;
+}
+
+@media only screen and (min-width: 1024px) {
+  .contact__text-content span {
+    display: block;
+  }
+}
+
+.contact__text-content .contact__info {
+  margin: 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 25px 1fr;
+      grid-template-columns: 25px 1fr;
+  gap: 0.7em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contact__form {
+  width: 70vw;
+}
+
+@media only screen and (min-width: 1024px) {
+  .contact__form {
+    width: 40vw;
+    padding-top: 1em;
+  }
+}
+
+.contact__form .form__section {
+  margin-bottom: 0.5em;
+}
+
+.contact__form .form__submit-btn {
+  position: relative;
+  background: #303030;
+  border-radius: 15px;
+  margin-top: 0.5em;
+  color: #F0F0F0;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 0.6em 3em;
+}
+
+.contact__form .form__submit-btn span {
+  text-align: left;
+  position: relative;
+  left: 0;
+  -webkit-transition: left 0.2s ease-in-out;
+  transition: left 0.2s ease-in-out;
+}
+
+.contact__form .form__submit-btn img {
+  position: absolute;
+  top: 70%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 11%;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact__form .form__submit-btn:hover {
+  background: #ff7920;
+}
+
+.contact__form .form__submit-btn:hover span {
+  left: -20%;
+}
+
+.contact__form .form__submit-btn:hover img {
+  top: 50%;
+  opacity: 0.8;
 }
 /*# sourceMappingURL=main.css.map */

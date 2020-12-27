@@ -1,6 +1,8 @@
 section.skills {
     h1 {
         color: $primary-satured;
+        margin: 0;
+        padding: 0;
     }
     background: $bg-darker;
 }
@@ -12,7 +14,7 @@ section.skills {
     align-items: center;
     gap: 3em;
     padding: 2em 0;
-    @include respond-min-width('tablet') {
+    @include respond-min-width('desktop') {
         grid-auto-flow: column;
         align-items: start;
         gap: 5em;

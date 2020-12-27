@@ -16,6 +16,8 @@
 
 /*
 A fizzy button spews colorful particles on hover
+Inspiration: https://codepen.io/webLeister/pen/XwGENz
+
 The button must have a "fizzy-spots-container"
 Inside this container are 52 "fizzy-spot" divs
     Index 1 - 20: top side spots
@@ -23,7 +25,7 @@ Inside this container are 52 "fizzy-spot" divs
     Index 41-46: left side spots
     Index 47-52: right side spots
 
-HTML templates:
+HTML template:
 <button>
     <div class="fizzy-spots-container>
         <div class="fizzy-spot"></div>
@@ -41,7 +43,7 @@ HTML templates:
         position: absolute;
         border-radius:100px;
         opacity: 0;
-        animation: opacity 1s;
+        animation: changeOpacity 1s;
         @for $i from 1 through 52 {
             &:nth-of-type(#{$i}){
                 transform-origin:90px - random(10) 20px - random(10);
@@ -76,7 +78,7 @@ HTML templates:
     
         @for $i from 47 through 52{
             &:nth-child(#{$i}){
-                padding:random(3) + 2 + px;
+                padding: random(3) + 2 + px;
                 left: -3%;
                 top: ($i - 45) * 10%;
     
@@ -88,66 +90,39 @@ HTML templates:
     &:hover .fizzy-spot{
         @for $i from 1 through 52 {
             &:nth-of-type(#{$i}) {
-                animation: spot-#{$i} .5s .4/random(10) + random(10)/10 + s linear infinite;
+                animation: moveSpot-#{$i} .5s .4/random(10) + random(10)/10 + s linear infinite;
             }
         }
     }
-    
+    // Animation keyframes
+    @keyframes changeOpacity {
+        from {}
+        to {opacity: 0;}
+    }
     // Set different keyframes for spots on 4 different sides
-
     @for $i from 1 through 20 {
-        @keyframes spot-#{$i} {
-            from{opacity:0;}
-            to{transform:translateY(30px) translatex(-20px + $i*2);opacity: 1;}
+        @keyframes moveSpot-#{$i} {
+            from {opacity: 0;}
+            to {transform: translateY(30px) translatex(-20px + $i*2); opacity: 0.9;}
         }
     }
     
     @for $i from 21 through 40{
-        @keyframes spot-#{$i}{
-            from{opacity:0;}
-            to{transform:translateY(-30px) translatex(-50px + $i*2);opacity: 1;}
+        @keyframes moveSpot-#{$i}{
+            from {opacity:0;}
+            to {transform:translateY(-30px) translatex(-50px + $i*2); opacity: 0.9;}
         }
     }
     @for $i from 41 through 46{
-        @keyframes spot-#{$i}{
-            from{opacity:0;}
-            to{transform:translateY(-86px + $i*2) translatex(40px);opacity: 1;}
+        @keyframes moveSpot-#{$i}{
+            from {opacity:0;}
+            to {transform:translateY(-86px + $i*2) translatex(40px); opacity: 0.9;}
         }
     }
     @for $i from 47 through 52{
-        @keyframes spot-#{$i}{
-            from{opacity:0;}
-            to{transform:translateY(-99px + $i*2) translatex(-40px);opacity: 1;}
+        @keyframes moveSpot-#{$i}{
+            from {opacity:0;}
+            to {transform:translateY(-99px + $i*2) translatex(-40px); opacity: 0.9;}
         }
-    }
-    
-    // General animation keyframes
-    @keyframes opacity{
-        from{}
-        to{opacity:0;}
-    }
-    
-    @keyframes rotate{
-        from{opacity:.8}
-        to{transform:rotate(360deg);opacity:.8}
-    }
-    
-    @keyframes down{
-        from{left:10px;}
-        to{left:57px;}
-    }
-    
-    @keyframes spew{
-        from{opacity:0;}
-        to{opacity:0.8;}
-    }
-    
-    @keyframes final{
-        from{opacity:1;}
-        to{opacity:0;}
-    }
-    @keyframes finalbox{
-        from{}
-        to{width:50px;}
     }
 }

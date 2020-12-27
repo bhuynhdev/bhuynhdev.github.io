@@ -1,0 +1,17 @@
+footer {
+    text-align: center;
+    padding: 2em 0;
+    background-color: $gray;
+    color: $white;
+    a {
+        color: $white;
+        &:hover {
+            color: $blue;
+        }
+    }
+    nav ul {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1em;
+    }
+}

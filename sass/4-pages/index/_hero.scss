@@ -24,6 +24,7 @@ section.hero {
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
+	margin-bottom: 2em;
 	.hero__link {
 		color: $white;
 		background-color: $primary;
@@ -36,10 +37,19 @@ section.hero {
 	}
 }
 
+.hero__socials {
+	opacity: 0.85;
+	@include respond-min-width('desktop') {
+		ul {
+			justify-content: start;
+		}
+	}
+}
+
 
 // Desktop version
 .hero {
-	@include respond-min-width('tablet') {
+	@include respond-min-width('desktop') {
 		height: 100vh;
 		text-align: left;
 		// Centering the hero's content

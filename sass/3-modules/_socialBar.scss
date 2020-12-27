@@ -1,0 +1,15 @@
+.socialBar {
+    width: 100%;
+    ul {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(4, 25px);
+        gap: 2em;
+        img {
+            width: 25px;
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
+}

@@ -3,4 +3,83 @@ section.contact {
     background: $primary-as-bg;
     // background: linear-gradient(175deg, rgba(242,24,46,1) 0%, rgba(189,62,195,1) 100%);
     // background: linear-gradient(175deg, rgba(242,24,46,1) 0%, rgba(214,209,60,1) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include respond-min-width('desktop') { // On desktop use a 2-column layout
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+.contact__text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    @include respond-min-width('desktop') {
+        align-items: flex-start; // Left align items on desktop
+    }
+    h1 {
+        margin: 0;
+    }
+    span {
+        display: none; // Not display this text on mobile
+        @include respond-min-width('desktop') {
+            display: block;
+        }
+    }
+    .contact__info {
+        margin: 0;
+        display: grid;
+        grid-template-columns: 25px 1fr; // Two column: icon on the left, text on the right
+        gap: 0.7em;
+        align-items: center;
+    }
+}
+
+
+.contact__form {
+    width: 70vw;
+    @include respond-min-width('desktop') {
+        width: 40vw;
+        padding-top: 1em;
+    }
+    .form__section {
+        margin-bottom: 0.5em;
+    }
+    .form__submit-btn {
+        position: relative;
+        background: $gray;
+        border-radius: 15px;
+        margin-top: 0.5em;
+        color: $white;
+        font-weight: 600;
+        font-size: 1.2rem;
+        padding: 0.6em 3em;
+        span {
+            text-align: left;
+            position: relative;
+            left: 0;
+            transition: left 0.2s ease-in-out;
+        }
+        img {
+            position: absolute;
+            top: 70%;
+            transform: translateY(-50%);
+            width: 11%;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+        }
+        &:hover {
+            background: $orange;
+            span {
+                left: -20%;
+            }
+            img {
+                top: 50%;
+                opacity: 0.8;
+            }
+        }
+    }
 }
