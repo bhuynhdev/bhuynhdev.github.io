@@ -66,7 +66,8 @@ section.contact {
         img {
             position: absolute;
             top: 70%;
-            transform: translateY(-50%);
+            left: 71%;
+            transform: translateY(-50%); // Vertical centering trick
             width: 11%;
             opacity: 0;
             transition: all 0.3s ease-in-out;
@@ -74,7 +75,7 @@ section.contact {
         &:hover {
             background: $orange;
             span {
-                left: -20%;
+                left: -19%;
             }
             img {
                 top: 50%;
